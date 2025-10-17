@@ -34,130 +34,84 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Default Medium Accordion
-export const Medium: Story = {
+// All Sizes - Show all accordion sizes together
+export const Sizes: Story = {
   args: {
     type: "single",
     collapsible: true,
     size: "md",
   },
-  render: (args) => (
-    <Accordion {...args} style={{ maxWidth: "680px" }}>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Section 1</AccordionTrigger>
-        <AccordionContent>
-          <p className="mb-4">
-            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-            tellus elit sed risus.
-          </p>
-          <p>
-            Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque
-            quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo
-            vestibulum venenatis.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Section 2</AccordionTrigger>
-        <AccordionContent>
-          <p>
-            This is the content for section 2. It contains information that can
-            be revealed when the section is expanded.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Section 3</AccordionTrigger>
-        <AccordionContent>
-          <p>
-            This is the content for section 3. Click the section header to
-            collapse this content.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  ),
-};
+  render: () => (
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4">
+        <h3 className="text-lg font-semibold">Small Size</h3>
+        <Accordion
+          type="single"
+          collapsible
+          size="sm"
+          style={{ maxWidth: "343px" }}
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Section 1</AccordionTrigger>
+            <AccordionContent>
+              <p>Small accordion content with compact spacing.</p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Section 2</AccordionTrigger>
+            <AccordionContent>
+              <p>Content for section 2 in small size.</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
 
-// Small Size
-export const Small: Story = {
-  args: {
-    type: "single",
-    collapsible: true,
-    size: "sm",
-  },
-  render: (args) => (
-    <Accordion {...args} style={{ maxWidth: "343px" }}>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Section 1</AccordionTrigger>
-        <AccordionContent>
-          <p className="mb-4">
-            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus.
-          </p>
-          <p>
-            Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque
-            quam a convallis.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Section 2</AccordionTrigger>
-        <AccordionContent>
-          <p>Content for section 2 in small size.</p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Section 3</AccordionTrigger>
-        <AccordionContent>
-          <p>Content for section 3 in small size.</p>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  ),
-};
+      <div className="flex flex-col gap-4">
+        <h3 className="text-lg font-semibold">Medium Size</h3>
+        <Accordion
+          type="single"
+          collapsible
+          size="md"
+          style={{ maxWidth: "680px" }}
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Section 1</AccordionTrigger>
+            <AccordionContent>
+              <p>Medium accordion content with standard spacing and padding.</p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Section 2</AccordionTrigger>
+            <AccordionContent>
+              <p>Content for section 2 in medium size.</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
 
-// Large Size
-export const Large: Story = {
-  args: {
-    type: "single",
-    collapsible: true,
-    size: "lg",
-  },
-  render: (args) => (
-    <Accordion {...args} style={{ maxWidth: "680px" }}>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Section 1</AccordionTrigger>
-        <AccordionContent>
-          <p className="mb-4">
-            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-            tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-            feugiat lectus.
-          </p>
-          <p>
-            Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque
-            quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo
-            vestibulum venenatis. Suspendisse quis arcu sem.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Section 2</AccordionTrigger>
-        <AccordionContent>
-          <p>Content for section 2 in large size with more padding.</p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Section 3</AccordionTrigger>
-        <AccordionContent>
-          <p>Content for section 3 in large size.</p>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+      <div className="flex flex-col gap-4">
+        <h3 className="text-lg font-semibold">Large Size</h3>
+        <Accordion
+          type="single"
+          collapsible
+          size="lg"
+          style={{ maxWidth: "680px" }}
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Section 1</AccordionTrigger>
+            <AccordionContent>
+              <p>Large accordion content with generous spacing and padding.</p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Section 2</AccordionTrigger>
+            <AccordionContent>
+              <p>Content for section 2 in large size.</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
   ),
 };
 
@@ -260,34 +214,6 @@ export const SingleItem: Story = {
             An accordion can also be used with just a single item for expandable
             content sections.
           </p>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  ),
-};
-
-// Playground
-export const Playground: Story = {
-  args: {
-    type: "single",
-    collapsible: true,
-    size: "md",
-  },
-  render: (args) => (
-    <Accordion {...args} style={{ maxWidth: "680px" }}>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Customize Me!</AccordionTrigger>
-        <AccordionContent>
-          <p>
-            Use the controls panel to experiment with different accordion sizes
-            and behaviors.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Section 2</AccordionTrigger>
-        <AccordionContent>
-          <p>Try changing the size and type properties.</p>
         </AccordionContent>
       </AccordionItem>
     </Accordion>

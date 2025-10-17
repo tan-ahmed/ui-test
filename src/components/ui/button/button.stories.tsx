@@ -285,14 +285,3 @@ export const FocusStates: Story = {
     </div>
   ),
 };
-
-// Interactive Playground
-export const Playground: Story = {
-  args: {
-    variant: "fill",
-    size: "md",
-    children: "Customize Me!",
-    disabled: false,
-    fullWidth: false,
-  },
-};
