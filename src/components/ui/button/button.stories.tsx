@@ -106,110 +106,101 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Primary Stories - Variants
-export const Fill: Story = {
-  args: {
-    variant: "fill",
-    children: "Fill Button",
-  },
+// All Variants - Show all button variants together
+export const Variants: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Button Variants</h3>
+      <div className="flex items-center gap-4">
+        <Button variant="fill">Fill Button</Button>
+        <Button variant="outline">Outline Button</Button>
+        <Button variant="text">Text Button</Button>
+      </div>
+    </div>
+  ),
 };
 
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children: "Outline Button",
-  },
+// Sizes - All sizes in one story
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Button Sizes</h3>
+      <div className="flex items-center gap-4">
+        <Button variant="fill" size="sm">
+          Small
+        </Button>
+        <Button variant="fill" size="md">
+          Medium
+        </Button>
+        <Button variant="fill" size="lg">
+          Large
+        </Button>
+        <Button variant="fill" size="xl">
+          Extra Large
+        </Button>
+      </div>
+    </div>
+  ),
 };
 
-export const Text: Story = {
-  args: {
-    variant: "text",
-    children: "Text Button",
-  },
+// With Icons - All icon variations in one story
+export const WithIcons: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Buttons with Icons</h3>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-4">
+          <Button variant="fill" iconLeft={<ChevronLeftIcon />}>
+            Back
+          </Button>
+          <Button variant="fill" iconRight={<ChevronRightIcon />}>
+            Next
+          </Button>
+          <Button
+            variant="fill"
+            iconLeft={<ChevronLeftIcon />}
+            iconRight={<ChevronRightIcon />}
+          >
+            Both Icons
+          </Button>
+        </div>
+        <div className="flex items-center gap-4">
+          <Button variant="outline" iconLeft={<ChevronLeftIcon />}>
+            Back
+          </Button>
+          <Button variant="outline" iconRight={<ChevronRightIcon />}>
+            Next
+          </Button>
+          <Button variant="text" iconLeft={<ChevronLeftIcon />}>
+            Back
+          </Button>
+          <Button variant="text" iconRight={<ChevronRightIcon />}>
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+  ),
 };
 
-// Sizes - Fill Variant
-export const Small: Story = {
-  args: {
-    variant: "fill",
-    size: "sm",
-    children: "Small Button",
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    variant: "fill",
-    size: "md",
-    children: "Medium Button",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    variant: "fill",
-    size: "lg",
-    children: "Large Button",
-  },
-};
-
-export const ExtraLarge: Story = {
-  args: {
-    variant: "fill",
-    size: "xl",
-    children: "Extra Large Button",
-  },
-};
-
-// With Icons
-export const WithIconLeft: Story = {
-  args: {
-    variant: "fill",
-    iconLeft: <ChevronLeftIcon />,
-    children: "Back",
-  },
-};
-
-export const WithIconRight: Story = {
-  args: {
-    variant: "fill",
-    iconRight: <ChevronRightIcon />,
-    children: "Next",
-  },
-};
-
-export const WithBothIcons: Story = {
-  args: {
-    variant: "fill",
-    iconLeft: <ChevronLeftIcon />,
-    iconRight: <ChevronRightIcon />,
-    children: "Both Icons",
-  },
-};
-
-// States
-export const Disabled: Story = {
-  args: {
-    variant: "fill",
-    disabled: true,
-    children: "Disabled Button",
-  },
-};
-
-export const DisabledOutline: Story = {
-  args: {
-    variant: "outline",
-    disabled: true,
-    children: "Disabled Outline",
-  },
-};
-
-export const DisabledText: Story = {
-  args: {
-    variant: "text",
-    disabled: true,
-    children: "Disabled Text",
-  },
+// Disabled States - All variants in one story
+export const DisabledStates: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Disabled States</h3>
+      <div className="flex items-center gap-4">
+        <Button variant="fill" disabled>
+          Disabled Fill
+        </Button>
+        <Button variant="outline" disabled>
+          Disabled Outline
+        </Button>
+        <Button variant="text" disabled>
+          Disabled Text
+        </Button>
+      </div>
+    </div>
+  ),
 };
 
 // Full Width
@@ -230,62 +221,50 @@ export const FullWidthWithIconRight: Story = {
   },
 };
 
-// Outline Sizes
-export const OutlineSmall: Story = {
-  args: {
-    variant: "outline",
-    size: "sm",
-    children: "Small Outline",
-  },
+// Outline Sizes - All sizes in one story
+export const OutlineSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Outline Button Sizes</h3>
+      <div className="flex items-center gap-4">
+        <Button variant="outline" size="sm">
+          Small Outline
+        </Button>
+        <Button variant="outline" size="md">
+          Medium Outline
+        </Button>
+        <Button variant="outline" size="lg">
+          Large Outline
+        </Button>
+        <Button variant="outline" size="xl">
+          Extra Large Outline
+        </Button>
+      </div>
+    </div>
+  ),
 };
 
-export const OutlineMedium: Story = {
-  args: {
-    variant: "outline",
-    size: "md",
-    children: "Medium Outline",
-  },
-};
-
-export const OutlineLarge: Story = {
-  args: {
-    variant: "outline",
-    size: "lg",
-    children: "Large Outline",
-  },
-};
-
-// Text Sizes
-export const TextSmall: Story = {
-  args: {
-    variant: "text",
-    size: "sm",
-    children: "Small Text Link",
-  },
-};
-
-export const TextMedium: Story = {
-  args: {
-    variant: "text",
-    size: "md",
-    children: "Medium Text Link",
-  },
-};
-
-export const TextLarge: Story = {
-  args: {
-    variant: "text",
-    size: "lg",
-    children: "Large Text Link",
-  },
-};
-
-export const TextExtraLarge: Story = {
-  args: {
-    variant: "text",
-    size: "xl",
-    children: "Extra Large Text Link",
-  },
+// Text Sizes - All sizes in one story
+export const TextSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Text Button Sizes</h3>
+      <div className="flex items-center gap-4">
+        <Button variant="text" size="sm">
+          Small Text Link
+        </Button>
+        <Button variant="text" size="md">
+          Medium Text Link
+        </Button>
+        <Button variant="text" size="lg">
+          Large Text Link
+        </Button>
+        <Button variant="text" size="xl">
+          Extra Large Text Link
+        </Button>
+      </div>
+    </div>
+  ),
 };
 
 // Focus States Demo

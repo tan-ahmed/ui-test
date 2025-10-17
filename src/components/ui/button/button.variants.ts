@@ -7,7 +7,7 @@ export const buttonVariants = cva(
       variant: {
         fill: "bg-weg-purple text-white rounded-full shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-1px_rgba(0,0,0,0.06)] hover:bg-weg-purple-hover hover:shadow-[0px_6px_8px_-1px_rgba(0,0,0,0.15),0px_3px_5px_-1px_rgba(0,0,0,0.08)] focus-visible:ring-2 focus-visible:ring-weg-purple disabled:bg-gray-300 disabled:text-gray-400 disabled:shadow-none ",
         outline:
-          "bg-neutral-100 text-weg-purple border-2 border-weg-purple rounded-full hover:bg-neutral-200 hover:border-weg-purple-hover hover:text-weg-purple-hover ring-2 ring-weg-purple disabled:bg-neutral-100 disabled:border-gray-300 disabled:text-gray-400 ",
+          "bg-neutral-100 text-weg-purple border-2 border-weg-purple rounded-full hover:bg-neutral-200 hover:border-weg-purple-hover hover:text-weg-purple-hover focus-visible:ring-2 focus-visible:ring-weg-purple disabled:bg-neutral-100 disabled:border-gray-300 disabled:text-gray-400 ",
         text: "bg-transparent text-weg-blue font-light underline decoration-skip-ink-none underline-offset-auto p-0 hover:text-weg-blue-hover hover:decoration-2 focus-visible:ring-2 focus-visible:ring-weg-blue disabled:text-gray-400 ",
       },
       size: {
