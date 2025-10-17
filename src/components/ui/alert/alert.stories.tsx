@@ -37,6 +37,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Interactive Playground
+export const Playground: Story = {
+  args: {
+    variant: "success",
+    children: "This is a customizable alert message",
+  },
+};
+
 // All Variants - Show all alert variants together
 export const Variants: Story = {
   render: () => (

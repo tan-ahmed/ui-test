@@ -106,6 +106,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Interactive Playground
+export const Playground: Story = {
+  args: {
+    variant: "fill",
+    size: "md",
+    children: "Button",
+    disabled: false,
+    fullWidth: false,
+  },
+};
+
 // All Variants - Show all button variants together
 export const Variants: Story = {
   render: () => (

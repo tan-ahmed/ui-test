@@ -34,6 +34,37 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Interactive Playground
+export const Playground: Story = {
+  args: {
+    type: "single",
+    collapsible: true,
+    size: "md",
+  },
+  render: (args) => (
+    <Accordion {...args} style={{ maxWidth: "680px" }}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Section 1</AccordionTrigger>
+        <AccordionContent>
+          <p>
+            This is the content for section 1. You can customize the accordion
+            properties using the controls.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Section 2</AccordionTrigger>
+        <AccordionContent>
+          <p>
+            This is the content for section 2. Try changing the type to
+            "multiple" to open both sections at once.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+};
+
 // All Sizes - Show all accordion sizes together
 export const Sizes: Story = {
   args: {
