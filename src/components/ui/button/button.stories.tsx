@@ -216,20 +216,19 @@ export const DisabledStates: Story = {
 
 // Full Width
 export const FullWidth: Story = {
-  args: {
-    variant: "fill",
-    fullWidth: true,
-    children: "Full Width Button",
-  },
-};
-
-export const FullWidthWithIconRight: Story = {
-  args: {
-    variant: "fill",
-    fullWidth: true,
-    iconRight: <ChevronRightIcon />,
-    children: "Full Width with Icon",
-  },
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg font-semibold">Full Width Buttons</h3>
+      <div className="flex flex-col gap-4" style={{ width: "600px" }}>
+        <Button variant="fill" fullWidth>
+          Full Width Button
+        </Button>
+        <Button variant="fill" fullWidth iconRight={<ChevronRightIcon />}>
+          Full Width with Icon
+        </Button>
+      </div>
+    </div>
+  ),
 };
 
 // Outline Sizes - All sizes in one story
