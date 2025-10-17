@@ -288,6 +288,25 @@ export const TextExtraLarge: Story = {
   },
 };
 
+// Focus States Demo
+export const FocusStates: Story = {
+  render: () => (
+    <div className="flex flex-col gap-8 p-8">
+      <div className="flex flex-col gap-4">
+        <h3 className="text-lg font-semibold">Tab Focus States</h3>
+        <p className="text-sm text-gray-600">
+          Use Tab key to navigate and see focus styling
+        </p>
+        <div className="flex gap-4">
+          <Button variant="fill">Filled Button</Button>
+          <Button variant="outline">Outline Button</Button>
+          <Button variant="text">Text Link</Button>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
 // Interactive Playground
 export const Playground: Story = {
   args: {
