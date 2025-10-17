@@ -1,5 +1,11 @@
 import "./App.css";
 import { Button } from "./components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components/ui/accordion";
 
 function App() {
   return (
@@ -9,8 +15,8 @@ function App() {
       </h1>
 
       <p style={{ marginBottom: "32px", color: "#666" }}>
-        Button components are now available. View all variants and interactive
-        examples in Storybook.
+        Components are now available. View all variants and interactive examples
+        in Storybook.
       </p>
 
       <section style={{ marginBottom: "32px" }}>
@@ -81,6 +87,50 @@ function App() {
         </div>
       </section>
 
+      <section style={{ marginBottom: "32px" }}>
+        <h2
+          style={{
+            marginBottom: "16px",
+            fontSize: "18px",
+            fontFamily: "Open Sans, sans-serif",
+          }}
+        >
+          Accordion Example
+        </h2>
+
+        <Accordion type="single" collapsible size="md">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What is the WEG Design System?</AccordionTrigger>
+            <AccordionContent>
+              <p>
+                The WEG Design System is a comprehensive collection of reusable
+                components, design tokens, and guidelines to build consistent
+                user interfaces across WEG applications.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>How do I use these components?</AccordionTrigger>
+            <AccordionContent>
+              <p>
+                Import components from their respective folders and use them in
+                your React application. Each component has TypeScript types and
+                full documentation in Storybook.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Where can I see more examples?</AccordionTrigger>
+            <AccordionContent>
+              <p>
+                Run <code>npm run storybook</code> to see all components,
+                variants, and interactive examples with full documentation.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
+
       <div
         style={{
           marginTop: "48px",
@@ -91,7 +141,7 @@ function App() {
       >
         <p style={{ margin: 0, fontSize: "14px" }}>
           💡 <strong>Tip:</strong> Run <code>npm run storybook</code> to see all
-          button variants, sizes, and interactive controls in Storybook.
+          component variants, sizes, and interactive controls in Storybook.
         </p>
       </div>
     </div>
