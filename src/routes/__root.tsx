@@ -30,8 +30,9 @@ export const Route = createRootRoute({
                     className:
                       "text-purple-600 bg-purple-50 px-3 py-2 rounded-md text-sm font-medium",
                   }}
+                  activeOptions={{ exact: true }}
                 >
-                  Components
+                  Home
                 </Link>
                 <a
                   href="http://localhost:6007"

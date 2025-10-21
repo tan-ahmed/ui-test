@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
+import { Route as ComponentsCardRouteImport } from './routes/components/card'
+import { Route as ComponentsButtonRouteImport } from './routes/components/button'
+import { Route as ComponentsAlertRouteImport } from './routes/components/alert'
+import { Route as ComponentsAccordionRouteImport } from './routes/components/accordion'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComponentsDialogRoute = ComponentsDialogRouteImport.update({
+  id: '/components/dialog',
+  path: '/components/dialog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCardRoute = ComponentsCardRouteImport.update({
+  id: '/components/card',
+  path: '/components/card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsButtonRoute = ComponentsButtonRouteImport.update({
+  id: '/components/button',
+  path: '/components/button',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsAlertRoute = ComponentsAlertRouteImport.update({
+  id: '/components/alert',
+  path: '/components/alert',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsAccordionRoute = ComponentsAccordionRouteImport.update({
+  id: '/components/accordion',
+  path: '/components/accordion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/components/accordion': typeof ComponentsAccordionRoute
+  '/components/alert': typeof ComponentsAlertRoute
+  '/components/button': typeof ComponentsButtonRoute
+  '/components/card': typeof ComponentsCardRoute
+  '/components/dialog': typeof ComponentsDialogRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/components/accordion': typeof ComponentsAccordionRoute
+  '/components/alert': typeof ComponentsAlertRoute
+  '/components/button': typeof ComponentsButtonRoute
+  '/components/card': typeof ComponentsCardRoute
+  '/components/dialog': typeof ComponentsDialogRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/components/accordion': typeof ComponentsAccordionRoute
+  '/components/alert': typeof ComponentsAlertRoute
+  '/components/button': typeof ComponentsButtonRoute
+  '/components/card': typeof ComponentsCardRoute
+  '/components/dialog': typeof ComponentsDialogRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/components/accordion'
+    | '/components/alert'
+    | '/components/button'
+    | '/components/card'
+    | '/components/dialog'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/components/accordion'
+    | '/components/alert'
+    | '/components/button'
+    | '/components/card'
+    | '/components/dialog'
+  id:
+    | '__root__'
+    | '/'
+    | '/components/accordion'
+    | '/components/alert'
+    | '/components/button'
+    | '/components/card'
+    | '/components/dialog'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComponentsAccordionRoute: typeof ComponentsAccordionRoute
+  ComponentsAlertRoute: typeof ComponentsAlertRoute
+  ComponentsButtonRoute: typeof ComponentsButtonRoute
+  ComponentsCardRoute: typeof ComponentsCardRoute
+  ComponentsDialogRoute: typeof ComponentsDialogRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/components/dialog': {
+      id: '/components/dialog'
+      path: '/components/dialog'
+      fullPath: '/components/dialog'
+      preLoaderRoute: typeof ComponentsDialogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/card': {
+      id: '/components/card'
+      path: '/components/card'
+      fullPath: '/components/card'
+      preLoaderRoute: typeof ComponentsCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/button': {
+      id: '/components/button'
+      path: '/components/button'
+      fullPath: '/components/button'
+      preLoaderRoute: typeof ComponentsButtonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/alert': {
+      id: '/components/alert'
+      path: '/components/alert'
+      fullPath: '/components/alert'
+      preLoaderRoute: typeof ComponentsAlertRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/accordion': {
+      id: '/components/accordion'
+      path: '/components/accordion'
+      fullPath: '/components/accordion'
+      preLoaderRoute: typeof ComponentsAccordionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComponentsAccordionRoute: ComponentsAccordionRoute,
+  ComponentsAlertRoute: ComponentsAlertRoute,
+  ComponentsButtonRoute: ComponentsButtonRoute,
+  ComponentsCardRoute: ComponentsCardRoute,
+  ComponentsDialogRoute: ComponentsDialogRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

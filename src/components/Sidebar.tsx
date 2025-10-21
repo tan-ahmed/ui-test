@@ -11,6 +11,23 @@ interface SidebarProps {
 export function Sidebar({ components }: SidebarProps) {
   const categories = [...new Set(components.map((c) => c.category))];
 
+  // Map component titles to their routes
+  const getComponentRoute = (title: string) => {
+    const routeMap: Record<string, string> = {
+      Button: "/components/button",
+      Alert: "/components/alert",
+      Accordion: "/components/accordion",
+      Card: "/components/card",
+      Dialog: "/components/dialog",
+    };
+    return routeMap[title] as
+      | "/components/button"
+      | "/components/alert"
+      | "/components/accordion"
+      | "/components/card"
+      | "/components/dialog";
+  };
+
   return (
     <div className="w-64 bg-white border-r border-gray-200 h-full overflow-y-auto">
       <div className="p-6">
@@ -26,16 +43,18 @@ export function Sidebar({ components }: SidebarProps) {
                 {components
                   .filter((component) => component.category === category)
                   .map((component) => (
-                    <a
+                    <Link
                       key={component.title}
-                      href={`#${component.title
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
+                      to={getComponentRoute(component.title)}
                       className="flex items-center justify-between px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors group"
+                      activeProps={{
+                        className:
+                          "flex items-center justify-between px-3 py-2 text-sm bg-purple-50 text-purple-600 rounded-md group",
+                      }}
                     >
                       <span>{component.title}</span>
                       <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
+                    </Link>
                   ))}
               </div>
             </div>
