@@ -42,29 +42,14 @@ const SlideCard = ({ index }: { index: number }) => (
   </Card>
 );
 
-export const DefaultCarousel: Story = {
-  render: () => (
-    <div className="w-full max-w-xl">
-      <Carousel className="w-full">
-        <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <SlideCard index={index} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselControls />
-      </Carousel>
-    </div>
-  ),
-};
+// DefaultCarousel is now covered by the Playground story above
 
 export const Playground: Story = {
   parameters: {
     docs: {
       story: {
         inline: false,
-        iframeHeight: 800,
+        iframeHeight: 400,
       },
     },
   },
@@ -88,88 +73,25 @@ export const Playground: Story = {
   },
   render: function Render(args) {
     const [slideCount, setSlideCount] = useState(5);
-    const [slidesPerView, setSlidesPerView] = useState(1);
-    const [showAutoplay, setShowAutoplay] = useState(false);
-    const [autoplayInterval, setAutoplayInterval] = useState(3000);
+    const [slidesPerView, setSlidesPerView] = useState(2);
+    const [slidesToScroll, setSlidesToScroll] = useState(1);
+    const [showAutoplay, setShowAutoplay] = useState(true);
+    const [autoplayInterval, setAutoplayInterval] = useState(1500);
+    const [loopEnabled, setLoopEnabled] = useState(true);
+    const [alignOption, setAlignOption] = useState("center");
 
     return (
-      <div className="w-full max-w-4xl p-8 space-y-6">
-        {/* Controls Panel */}
-        <div className="bg-gray-50 rounded-lg border p-6 space-y-4">
-          <h3 className="font-semibold text-lg mb-4">Playground Controls</h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Number of Slides: {slideCount}
-              </label>
-              <input
-                type="range"
-                min="3"
-                max="10"
-                value={slideCount}
-                onChange={(e) => setSlideCount(Number(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Slides Per View:{" "}
-                {slidesPerView === 1 ? "1" : `1/${slidesPerView}`}
-              </label>
-              <input
-                type="range"
-                min="1"
-                max="4"
-                value={slidesPerView}
-                onChange={(e) => setSlidesPerView(Number(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                <input
-                  type="checkbox"
-                  checked={showAutoplay}
-                  onChange={(e) => setShowAutoplay(e.target.checked)}
-                  className="rounded"
-                />
-                Enable Autoplay
-              </label>
-            </div>
-
-            {showAutoplay && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Autoplay Interval: {autoplayInterval}ms
-                </label>
-                <input
-                  type="range"
-                  min="1000"
-                  max="5000"
-                  step="500"
-                  value={autoplayInterval}
-                  onChange={(e) => setAutoplayInterval(Number(e.target.value))}
-                  className="w-full"
-                />
-              </div>
-            )}
-          </div>
-
-          <div className="pt-2 border-t">
-            <p className="text-sm text-gray-600">
-              <strong>Current Options:</strong>{" "}
-              {JSON.stringify(args.opts, null, 2)}
-            </p>
-          </div>
-        </div>
-
+      <div className="w-full max-w-4xl p-4 space-y-4">
         {/* Carousel */}
-        <div className="bg-white rounded-lg border p-8">
+        <div className="bg-white rounded-lg border p-4">
           <Carousel
             {...args}
+            opts={{
+              ...args.opts,
+              loop: loopEnabled,
+              align: alignOption as "start" | "center" | "end",
+              slidesToScroll: slidesToScroll,
+            }}
             className={cn(
               "w-full mx-auto",
               args.orientation === "vertical" ? "max-w-xs" : "max-w-3xl"
@@ -231,11 +153,133 @@ export const Playground: Story = {
           </Carousel>
         </div>
 
+        {/* Controls Panel */}
+        <div className="bg-gray-50 rounded-lg border p-4 space-y-3">
+          <h3 className="font-semibold text-lg mb-4">Playground Controls</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Number of Slides: {slideCount}
+              </label>
+              <input
+                type="range"
+                min="3"
+                max="10"
+                value={slideCount}
+                onChange={(e) => setSlideCount(Number(e.target.value))}
+                className="w-full"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Slides Per View:{" "}
+                {slidesPerView === 1 ? "1" : `1/${slidesPerView}`}
+              </label>
+              <input
+                type="range"
+                min="1"
+                max="4"
+                value={slidesPerView}
+                onChange={(e) => setSlidesPerView(Number(e.target.value))}
+                className="w-full"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Slides to Scroll: {slidesToScroll}
+              </label>
+              <input
+                type="range"
+                min="1"
+                max="3"
+                value={slidesToScroll}
+                onChange={(e) => setSlidesToScroll(Number(e.target.value))}
+                className="w-full"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Align: {alignOption}
+              </label>
+              <select
+                value={alignOption}
+                onChange={(e) => setAlignOption(e.target.value)}
+                className="w-full p-2 border rounded"
+              >
+                <option value="center">Center</option>
+                <option value="start">Start</option>
+                <option value="end">End</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                <input
+                  type="checkbox"
+                  checked={loopEnabled}
+                  onChange={(e) => setLoopEnabled(e.target.checked)}
+                  className="rounded"
+                />
+                Enable Loop
+              </label>
+            </div>
+
+            <div>
+              <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                <input
+                  type="checkbox"
+                  checked={showAutoplay}
+                  onChange={(e) => setShowAutoplay(e.target.checked)}
+                  className="rounded"
+                />
+                Enable Autoplay
+              </label>
+            </div>
+
+            {showAutoplay && (
+              <div className="md:col-span-2 lg:col-span-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Autoplay Interval: {autoplayInterval}ms
+                </label>
+                <input
+                  type="range"
+                  min="1000"
+                  max="5000"
+                  step="500"
+                  value={autoplayInterval}
+                  onChange={(e) => setAutoplayInterval(Number(e.target.value))}
+                  className="w-full"
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="pt-2 border-t">
+            <p className="text-sm text-gray-600">
+              <strong>Current Options:</strong>{" "}
+              {JSON.stringify(
+                {
+                  loop: loopEnabled,
+                  align: alignOption,
+                  slidesToScroll: slidesToScroll,
+                  ...args.opts,
+                },
+                null,
+                2
+              )}
+            </p>
+          </div>
+        </div>
+
         {/* Info Panel */}
-        <div className="bg-blue-50 rounded-lg border border-blue-200 p-4">
+        <div className="bg-blue-50 rounded-lg border border-blue-200 p-3">
           <p className="text-sm text-blue-800">
             <strong>💡 Tip:</strong> Try adjusting the options in the controls
-            above or use the Storybook controls panel to modify carousel options
+            below or use the Storybook controls panel to modify carousel options
             like <code className="bg-blue-100 px-1 rounded">loop</code>,{" "}
             <code className="bg-blue-100 px-1 rounded">align</code>, and more!
           </p>
@@ -245,74 +289,7 @@ export const Playground: Story = {
   },
 };
 
-export const LoopCarousel: Story = {
-  render: () => (
-    <div className="w-full max-w-xl">
-      <Carousel
-        opts={{
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <div className="relative">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <SlideCard index={index} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselAutoplay />
-        </div>
-        <CarouselControls />
-      </Carousel>
-    </div>
-  ),
-};
-
-export const SlidesToScroll: Story = {
-  render: () => (
-    <div className="w-full max-w-xl">
-      <Carousel
-        opts={{
-          slidesToScroll: 2,
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <CarouselItem key={index} className="basis-1/2">
-              <SlideCard index={index} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselControls />
-      </Carousel>
-    </div>
-  ),
-};
-
-export const AlignCarousel: Story = {
-  render: () => (
-    <div className="w-full max-w-xl">
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index} className="basis-1/3">
-              <SlideCard index={index} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselControls />
-      </Carousel>
-    </div>
-  ),
-};
+// These stories are now covered by the enhanced Playground story above
 
 export const VariableWidths: Story = {
   render: () => (
@@ -361,31 +338,13 @@ export const YAxisCarousel: Story = {
   ),
 };
 
-export const SlidesPerView: Story = {
-  render: () => (
-    <div className="w-full max-w-5xl">
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <SlideCard index={index} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselControls />
-      </Carousel>
-    </div>
-  ),
-};
+// SlidesPerView is now covered by the enhanced Playground story above
 
 export const ThumbnailsCarousel: Story = {
   render: function Render() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [mainApi, setMainApi] = useState<any>();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [thumbApi, setThumbApi] = useState<any>();
     const [selectedIndex, setSelectedIndex] = useState(0);
 
