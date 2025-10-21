@@ -9,6 +9,10 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  args: {
+    checked: true,
+    disabled: false,
+  },
   argTypes: {
     disabled: {
       control: "boolean",
@@ -29,30 +33,43 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Basic Stories
-export const Default: Story = {
-  args: {},
+export const States: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-3">
+        <Checkbox id="unchecked" />
+        <label htmlFor="unchecked" className="text-sm font-medium">
+          Unchecked
+        </label>
+      </div>
+      <div className="flex items-center gap-3">
+        <Checkbox id="checked" defaultChecked />
+        <label htmlFor="checked" className="text-sm font-medium">
+          Checked
+        </label>
+      </div>
+      <div className="flex items-center gap-3">
+        <Checkbox id="disabled" disabled />
+        <label
+          htmlFor="disabled"
+          className="text-sm font-medium text-muted-foreground"
+        >
+          Disabled
+        </label>
+      </div>
+      <div className="flex items-center gap-3">
+        <Checkbox id="disabled-checked" disabled defaultChecked />
+        <label
+          htmlFor="disabled-checked"
+          className="text-sm font-medium text-muted-foreground"
+        >
+          Disabled Checked
+        </label>
+      </div>
+    </div>
+  ),
 };
 
-export const Checked: Story = {
-  args: {
-    defaultChecked: true,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
-};
-
-export const DisabledChecked: Story = {
-  args: {
-    disabled: true,
-    defaultChecked: true,
-  },
-};
-
-// With Label (like the design you provided)
 export const WithLabel: Story = {
   render: () => (
     <div className="flex items-center gap-3">
@@ -67,142 +84,6 @@ export const WithLabel: Story = {
   ),
 };
 
-// Options List (matching your design image)
-export const OptionsList: Story = {
-  render: function OptionsListStory() {
-    const [checkedItems, setCheckedItems] = useState({
-      option1: true,
-      option2: false,
-      option3: true,
-      option4: false,
-    });
-
-    const handleChange = (option: keyof typeof checkedItems) => {
-      setCheckedItems((prev) => ({
-        ...prev,
-        [option]: !prev[option],
-      }));
-    };
-
-    return (
-      <div className="w-[400px] bg-white rounded-lg border p-4">
-        <div className="flex flex-col gap-4">
-          {Object.entries(checkedItems).map(([key, checked], index) => (
-            <div key={key} className="flex items-center gap-3">
-              <Checkbox
-                id={key}
-                checked={checked}
-                onCheckedChange={() =>
-                  handleChange(key as keyof typeof checkedItems)
-                }
-              />
-              <label
-                htmlFor={key}
-                className="text-base leading-none cursor-pointer flex-1"
-              >
-                Option {index + 1}
-              </label>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  },
-};
-
-// With Description
-export const WithDescription: Story = {
-  render: () => (
-    <div className="flex items-start gap-3">
-      <Checkbox id="marketing" defaultChecked className="mt-0.5" />
-      <div className="grid gap-2">
-        <label
-          htmlFor="marketing"
-          className="text-sm font-medium leading-none cursor-pointer"
-        >
-          Marketing emails
-        </label>
-        <p className="text-sm text-muted-foreground">
-          Receive emails about new products, features, and more.
-        </p>
-      </div>
-    </div>
-  ),
-};
-
-// Multiple Checkboxes Group
-export const MultipleCheckboxes: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-3">
-        <Checkbox id="option1" defaultChecked />
-        <label
-          htmlFor="option1"
-          className="text-sm font-medium leading-none cursor-pointer"
-        >
-          Option 1
-        </label>
-      </div>
-      <div className="flex items-center gap-3">
-        <Checkbox id="option2" />
-        <label
-          htmlFor="option2"
-          className="text-sm font-medium leading-none cursor-pointer"
-        >
-          Option 2
-        </label>
-      </div>
-      <div className="flex items-center gap-3">
-        <Checkbox id="option3" defaultChecked />
-        <label
-          htmlFor="option3"
-          className="text-sm font-medium leading-none cursor-pointer"
-        >
-          Option 3
-        </label>
-      </div>
-      <div className="flex items-center gap-3">
-        <Checkbox id="option4" />
-        <label
-          htmlFor="option4"
-          className="text-sm font-medium leading-none cursor-pointer"
-        >
-          Option 4
-        </label>
-      </div>
-    </div>
-  ),
-};
-
-// Interactive Checkbox
-export const Interactive: Story = {
-  render: () => {
-    const [checked, setChecked] = useState(false);
-
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-3">
-          <Checkbox
-            id="interactive"
-            checked={checked}
-            onCheckedChange={(checked) => setChecked(checked as boolean)}
-          />
-          <label
-            htmlFor="interactive"
-            className="text-sm font-medium leading-none cursor-pointer"
-          >
-            Click me!
-          </label>
-        </div>
-        <p className="text-sm text-muted-foreground">
-          Status: {checked ? "Checked ✓" : "Unchecked"}
-        </p>
-      </div>
-    );
-  },
-};
-
-// With Card Container (styled)
 export const WithCardContainer: Story = {
   render: () => (
     <label className="hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-4 cursor-pointer has-[[aria-checked=true]]:border-primary has-[[aria-checked=true]]:bg-primary/5 transition-colors">
@@ -217,7 +98,6 @@ export const WithCardContainer: Story = {
   ),
 };
 
-// Form Example
 export const FormExample: Story = {
   render: () => {
     const [formData, setFormData] = useState({

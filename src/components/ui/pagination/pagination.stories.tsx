@@ -62,58 +62,6 @@ export const Default: Story = {
   },
 };
 
-export const MiddlePage: Story = {
-  args: {
-    currentPage: 5,
-    totalItems: 100,
-    itemsPerPage: 10,
-    showItemsPerPage: true,
-    onPageChange: () => {},
-  },
-  render: function Render(args) {
-    const [currentPage, setCurrentPage] = useState(args.currentPage);
-
-    return (
-      <div className="w-full max-w-2xl p-8">
-        <Pagination
-          {...args}
-          currentPage={currentPage}
-          onPageChange={(page) => {
-            setCurrentPage(page);
-            args.onPageChange?.(page);
-          }}
-        />
-      </div>
-    );
-  },
-};
-
-export const LastPage: Story = {
-  args: {
-    currentPage: 10,
-    totalItems: 100,
-    itemsPerPage: 10,
-    showItemsPerPage: true,
-    onPageChange: () => {},
-  },
-  render: function Render(args) {
-    const [currentPage, setCurrentPage] = useState(args.currentPage);
-
-    return (
-      <div className="w-full max-w-2xl p-8">
-        <Pagination
-          {...args}
-          currentPage={currentPage}
-          onPageChange={(page) => {
-            setCurrentPage(page);
-            args.onPageChange?.(page);
-          }}
-        />
-      </div>
-    );
-  },
-};
-
 export const WithoutItemsPerPage: Story = {
   args: {
     currentPage: 1,
