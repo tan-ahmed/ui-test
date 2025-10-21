@@ -2,12 +2,10 @@ import * as React from "react";
 import { type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { alertVariants } from "./alert.variants";
-import {
-  IoCheckmark,
-  IoClose,
-  IoWarning,
-  IoClose as IoCloseSmall,
-} from "react-icons/io5";
+import { IoCheckmark, IoClose as IoCloseSmall } from "react-icons/io5";
+import { BsExclamationTriangle } from "react-icons/bs";
+
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 export interface AlertProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -22,13 +20,17 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     const getDefaultIcon = () => {
       switch (variant) {
         case "success":
-          return <IoCheckmark className="w-6 h-6 sm:w-8 sm:h-8" />;
+          return <IoCheckmark className="w-6 h-6 sm:w-8 sm:h-8 text-white" />;
         case "error":
-          return <IoClose className="w-6 h-6 sm:w-8 sm:h-8" />;
+          return (
+            <AiOutlineExclamationCircle className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          );
         case "warning":
-          return <IoWarning className="w-6 h-6 sm:w-8 sm:h-8" />;
+          return (
+            <BsExclamationTriangle className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          );
         default:
-          return <IoCheckmark className="w-6 h-6 sm:w-8 sm:h-8" />;
+          return <IoCheckmark className="w-6 h-6 sm:w-8 sm:h-8 text-white" />;
       }
     };
 
