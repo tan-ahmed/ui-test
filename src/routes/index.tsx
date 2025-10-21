@@ -1,5 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Code, Palette, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Code,
+  Palette,
+  Zap,
+  Search,
+  BookOpen,
+  Play,
+  Download,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -83,48 +92,63 @@ function Index() {
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Getting Started
         </h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              1. Browse Components
-            </h3>
-            <p className="text-gray-600">
-              Use the sidebar to navigate through our collection of components.
-              Each component page includes live previews, code examples, and
-              usage guidelines.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex gap-4">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Search className="w-6 h-6 text-purple-600" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Browse Components
+              </h3>
+              <p className="text-gray-600">
+                Navigate through our component library with live previews and
+                code examples.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              2. View Documentation
-            </h3>
-            <p className="text-gray-600">
-              Each component includes comprehensive documentation with
-              information about variants, sizes, and customization options.
-            </p>
+          <div className="flex gap-4">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <BookOpen className="w-6 h-6 text-purple-600" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                View Documentation
+              </h3>
+              <p className="text-gray-600">
+                Access comprehensive docs with variants, sizes, and
+                customization options.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              3. Explore in Storybook
-            </h3>
-            <p className="text-gray-600">
-              For interactive examples and detailed component controls, visit
-              our Storybook instance where you can experiment with different
-              configurations.
-            </p>
+          <div className="flex gap-4">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Play className="w-6 h-6 text-purple-600" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Explore in Storybook
+              </h3>
+              <p className="text-gray-600">
+                Interactive examples and component controls for experimentation.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              4. Integrate into Your Project
-            </h3>
-            <p className="text-gray-600">
-              Components are available as npm packages and can be imported
-              directly into your React applications. Copy the code examples and
-              adapt them to your needs.
-            </p>
+          <div className="flex gap-4">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Download className="w-6 h-6 text-purple-600" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Integrate into Your Project
+              </h3>
+              <p className="text-gray-600">
+                Import components directly into your React applications.
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ export function Sidebar({ components }: SidebarProps) {
   };
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 h-full overflow-y-auto">
+    <div className="w-64 bg-white border-r border-gray-200 h-screen overflow-y-auto">
       <div className="p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Components</h2>
 
