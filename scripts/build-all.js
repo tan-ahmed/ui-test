@@ -1,37 +1,39 @@
 #!/usr/bin/env node
 
-import { execSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { execSync } from "child_process";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-console.log('🚀 Building both main app and Storybook...\n');
+console.log("🚀 Building both main app and Storybook...\n");
 
 // Build main app
-console.log('📦 Building main React app...');
-execSync('npx vite build --mode production', { stdio: 'inherit' });
+console.log("📦 Building main React app...");
+execSync("npx vite build --mode production", { stdio: "inherit" });
 
 // Build Storybook
-console.log('\n📚 Building Storybook...');
-execSync('npm run build-storybook', { stdio: 'inherit' });
+console.log("\n📚 Building Storybook...");
+execSync("npm run build-storybook", { stdio: "inherit" });
 
 // Create combined dist structure
-console.log('\n🔧 Setting up combined deployment...');
+console.log("\n🔧 Setting up combined deployment...");
 
-const distPath = path.join(__dirname, '..', 'dist');
-const storybookPath = path.join(__dirname, '..', 'storybook-static');
+const distPath = path.join(__dirname, "..", "dist");
+const storybookPath = path.join(__dirname, "..", "storybook-static");
 
 // Create storybook directory in dist
-const storybookDistPath = path.join(distPath, 'storybook');
+const storybookDistPath = path.join(distPath, "storybook");
 if (!fs.existsSync(storybookDistPath)) {
   fs.mkdirSync(storybookDistPath, { recursive: true });
 }
 
 // Copy Storybook files to dist/storybook
-execSync(`cp -r ${storybookPath}/* ${storybookDistPath}/`, { stdio: 'inherit' });
+execSync(`cp -r ${storybookPath}/* ${storybookDistPath}/`, {
+  stdio: "inherit",
+});
 
 // Create a redirect file for storybook
 const redirectContent = `<!DOCTYPE html>
@@ -47,8 +49,8 @@ const redirectContent = `<!DOCTYPE html>
 </body>
 </html>`;
 
-fs.writeFileSync(path.join(distPath, 'storybook.html'), redirectContent);
+fs.writeFileSync(path.join(distPath, "storybook.html"), redirectContent);
 
-console.log('\n✅ Build complete!');
-console.log('📁 Main app: /');
-console.log('📚 Storybook: /storybook/');
+console.log("\n✅ Build complete!");
+console.log("📁 Main app: /");
+console.log("📚 Storybook: /storybook/");
