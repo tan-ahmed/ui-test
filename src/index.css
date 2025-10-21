@@ -16,8 +16,10 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -48,11 +50,6 @@
   --color-link-hover: #003078;
   --color-link-visited: #003078;
   --color-link-active: #0b0c0c;
-  /* WEG Design System Colors */
-  --color-weg-purple: #503d96;
-  --color-weg-purple-hover: #3f2f7a;
-  --color-weg-blue: #1d70b8;
-  --color-weg-blue-hover: #144a7a;
 }
 
 :root {
@@ -66,9 +63,13 @@
   /* WEG Primary Purple: #503d96 */
   --primary: oklch(0.35 0.15 285);
   --primary-foreground: oklch(1 0 0);
+  /* Hover state for primary (darker purple: #3f2f7a) */
+  --primary-hover: oklch(0.3 0.15 285);
   /* WEG Link Blue: #1d70b8 */
   --secondary: oklch(0.5 0.15 240);
   --secondary-foreground: oklch(1 0 0);
+  /* Hover state for secondary (darker blue: #144a7a) */
+  --secondary-hover: oklch(0.4 0.15 240);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);

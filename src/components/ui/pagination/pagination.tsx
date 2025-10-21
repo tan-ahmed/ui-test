@@ -63,7 +63,7 @@ export function Pagination({
             "p-1 rounded-md transition-colors",
             currentPage === 1
               ? "text-gray-400 cursor-not-allowed"
-              : "text-gray-700 hover:text-purple-600"
+              : "text-gray-700 hover:text-primary-600"
           )}
         >
           <ChevronLeft size={20} />
@@ -82,7 +82,7 @@ export function Pagination({
             "p-1 rounded-md transition-colors",
             currentPage === totalPages
               ? "text-gray-400 cursor-not-allowed"
-              : "text-gray-700 hover:text-purple-600"
+              : "text-gray-700 hover:text-primary-600"
           )}
         >
           <ChevronRight size={20} />

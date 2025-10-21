@@ -57,17 +57,18 @@ import { Button } from "@/components/ui/button/button";
 
 ### Theme Integration
 
-The WEG design colors have been integrated into your Tailwind theme (`src/index.css`):
+The WEG design colors have been integrated into your Tailwind theme using shadcn's semantic tokens (`src/index.css`):
 
 - **Primary**: WEG Purple (`#503d96`)
+- **Primary Hover**: Darker WEG Purple (`#3f2f7a`)
 - **Secondary**: WEG Blue (`#1d70b8`)
-- **Custom colors**: `weg-purple`, `weg-purple-hover`, `weg-blue`, `weg-blue-hover`
+- **Secondary Hover**: Darker WEG Blue (`#144a7a`)
 
-This means you can now use these colors throughout your app:
+This means you can now use these colors throughout your app with standard Tailwind classes:
 
 ```tsx
 <div className="bg-primary text-primary-foreground">Uses WEG Purple</div>
-<button className="bg-weg-blue hover:bg-weg-blue-hover">Custom WEG Blue</button>
+<button className="bg-secondary hover:bg-secondary-hover">Uses WEG Blue</button>
 ```
 
 ## Usage
@@ -170,10 +171,10 @@ Navigate to **UI/Button** to see:
 
 ### Colors (CSS Variables)
 
-- **Primary Purple**: `var(--color-weg-purple)` (`#503d96`)
-- **Primary Purple Hover**: `var(--color-weg-purple-hover)` (`#3f2f7a`)
-- **Link Blue**: `var(--color-weg-blue)` (`#1d70b8`)
-- **Link Blue Hover**: `var(--color-weg-blue-hover)` (`#144a7a`)
+- **Primary (WEG Purple)**: `var(--color-primary)` (`#503d96` / `oklch(0.35 0.15 285)`)
+- **Primary Hover**: `var(--color-primary-hover)` (`#3f2f7a` / `oklch(0.3 0.15 285)`)
+- **Secondary (WEG Blue)**: `var(--color-secondary)` (`#1d70b8` / `oklch(0.5 0.15 240)`)
+- **Secondary Hover**: `var(--color-secondary-hover)` (`#144a7a` / `oklch(0.4 0.15 240)`)
 - **Disabled Background**: `#d1d5db`
 - **Disabled Text**: `#9ca3af`
 
@@ -195,7 +196,7 @@ The component uses **Tailwind utility classes directly** via `class-variance-aut
 
 - ✅ No separate CSS file needed
 - ✅ All styles visible in one place
-- ✅ Uses Tailwind theme colors (weg-purple, weg-blue)
+- ✅ Uses shadcn semantic color tokens (primary, secondary)
 - ✅ Recommended by Tailwind team
 - ✅ Better tree-shaking and smaller bundles
 - ✅ Easy to see exactly what styles apply
