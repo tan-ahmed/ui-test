@@ -35,22 +35,6 @@ execSync(`cp -r ${storybookPath}/* ${storybookDistPath}/`, {
   stdio: "inherit",
 });
 
-// Create a redirect file for storybook
-const redirectContent = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Storybook</title>
-  <meta http-equiv="refresh" content="0; url=/storybook/">
-</head>
-<body>
-  <p>Redirecting to Storybook...</p>
-  <script>window.location.href = '/storybook/';</script>
-</body>
-</html>`;
-
-fs.writeFileSync(path.join(distPath, "storybook.html"), redirectContent);
-
 console.log("\n✅ Build complete!");
 console.log("📁 Main app: /");
 console.log("📚 Storybook: /storybook/");

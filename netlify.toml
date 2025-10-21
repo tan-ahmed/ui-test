@@ -4,13 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "18"
-
-[[redirects]]
-  from = "/storybook"
-  to = "/storybook/"
-  status = 301
-
-[[redirects]]
-  from = "/storybook/*"
-  to = "/storybook/:splat"
-  status = 200
