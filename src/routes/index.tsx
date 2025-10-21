@@ -26,7 +26,7 @@ function Index() {
             <ArrowRight className="w-5 h-5" />
           </Link>
           <a
-            href="http://localhost:6007"
+            href="/storybook/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors font-medium"
