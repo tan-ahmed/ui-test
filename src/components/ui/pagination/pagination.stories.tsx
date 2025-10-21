@@ -19,23 +19,24 @@ const meta = {
   argTypes: {
     currentPage: {
       control: { type: "number", min: 1 },
-      description: "Current active page number",
+      description: "Which page is currently being viewed",
     },
     totalItems: {
       control: { type: "number", min: 0 },
-      description: "Total number of items in the dataset",
+      description: "Total number of items across all pages",
     },
     itemsPerPage: {
       control: { type: "number", min: 1 },
-      description: "Number of items to display per page",
+      description: "How many items to show on each page",
     },
     showItemsPerPage: {
       control: "boolean",
-      description: "Show or hide the items per page label",
+      description: "Show or hide the 'Items per page' text",
     },
     onPageChange: {
       action: "page-changed",
-      description: "Callback function when page changes",
+      description:
+        "Function that runs when user changes pages (for developers)",
     },
   },
 } satisfies Meta<typeof Pagination>;

@@ -62,34 +62,39 @@ const meta = {
     variant: {
       control: "select",
       options: ["fill", "outline", "text"],
-      description: "Button style variant",
+      description: "Choose the button style - filled, outlined, or text-only",
     },
     size: {
       control: "select",
       options: ["sm", "md", "lg", "xl"],
-      description: "Button size",
+      description: "Choose the button size from small to extra large",
     },
     fullWidth: {
       control: "boolean",
-      description: "Makes button take full width of container",
+      description:
+        "Make the button stretch across the full width of its container",
     },
     disabled: {
       control: "boolean",
-      description: "Disabled state",
+      description: "Disable the button so it cannot be clicked",
     },
     children: {
       control: "text",
-      description: "Button text content",
+      description: "The text that appears on the button",
+    },
+    onClick: {
+      control: false,
+      description: "Function that runs when button is clicked (for developers)",
     },
     iconLeft: {
       control: false,
       description:
-        "Icon component to display on the left (not editable in controls)",
+        "Icon to show on the left side of the button (for developers)",
     },
     iconRight: {
       control: false,
       description:
-        "Icon component to display on the right (not editable in controls)",
+        "Icon to show on the right side of the button (for developers)",
     },
     asChild: {
       table: {

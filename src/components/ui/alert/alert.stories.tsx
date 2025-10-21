@@ -14,19 +14,20 @@ const meta = {
     variant: {
       control: "select",
       options: ["success", "error", "warning"],
-      description: "Alert type variant",
+      description: "Choose the type of alert - success, error, or warning",
     },
     children: {
       control: "text",
-      description: "Alert message content",
+      description: "The message text to display in the alert",
     },
     icon: {
       control: false,
-      description: "Custom icon component (not editable in controls)",
+      description: "Custom icon to show in the alert (for developers)",
     },
     onDismiss: {
       control: false,
-      description: "Dismiss handler function (not editable in controls)",
+      description:
+        "Function that runs when the alert is dismissed (for developers)",
     },
   },
   args: {

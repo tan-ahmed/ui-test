@@ -20,12 +20,12 @@ const meta = {
   argTypes: {
     opts: {
       control: "object",
-      description: "Embla carousel options",
+      description: "Advanced carousel settings (for developers)",
     },
     orientation: {
       control: { type: "radio" },
       options: ["horizontal", "vertical"],
-      description: "Carousel orientation",
+      description: "Display slides horizontally or vertically",
     },
   },
 } satisfies Meta<typeof Carousel>;

@@ -17,17 +17,17 @@ const meta = {
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
-      description: "Accordion size variant",
+      description: "Choose the size of the accordion sections",
     },
     type: {
       control: "select",
       options: ["single", "multiple"],
-      description: "Whether one or multiple items can be opened at once",
+      description:
+        "Allow one section open at a time, or multiple sections open together",
     },
     collapsible: {
       control: "boolean",
-      description:
-        "When enabled, users can click an open section to close it. When disabled, users must click a different section to close the current one (only works with single selection mode)",
+      description: "Allow users to close an open section by clicking it again",
     },
   },
 } satisfies Meta<typeof Accordion>;

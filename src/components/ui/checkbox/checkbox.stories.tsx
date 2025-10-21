@@ -16,15 +16,15 @@ const meta = {
   argTypes: {
     disabled: {
       control: "boolean",
-      description: "Disabled state",
+      description: "Disable the checkbox so it cannot be clicked",
     },
     checked: {
       control: "boolean",
-      description: "Checked state (controlled)",
+      description: "Whether the checkbox is checked or not",
     },
     defaultChecked: {
       control: "boolean",
-      description: "Default checked state (uncontrolled)",
+      description: "Whether the checkbox starts checked when first loaded",
     },
   },
 } satisfies Meta<typeof Checkbox>;
