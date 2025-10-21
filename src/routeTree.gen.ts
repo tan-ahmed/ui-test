@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
 import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
 import { Route as ComponentsCardRouteImport } from './routes/components/card'
 import { Route as ComponentsButtonRouteImport } from './routes/components/button'
@@ -19,6 +20,11 @@ import { Route as ComponentsAccordionRouteImport } from './routes/components/acc
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
+  id: '/components/pagination',
+  path: '/components/pagination',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsDialogRoute = ComponentsDialogRouteImport.update({
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
   '/components/dialog': typeof ComponentsDialogRoute
+  '/components/pagination': typeof ComponentsPaginationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
   '/components/dialog': typeof ComponentsDialogRoute
+  '/components/pagination': typeof ComponentsPaginationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
   '/components/dialog': typeof ComponentsDialogRoute
+  '/components/pagination': typeof ComponentsPaginationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/card'
     | '/components/dialog'
+    | '/components/pagination'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/card'
     | '/components/dialog'
+    | '/components/pagination'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/card'
     | '/components/dialog'
+    | '/components/pagination'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   ComponentsButtonRoute: typeof ComponentsButtonRoute
   ComponentsCardRoute: typeof ComponentsCardRoute
   ComponentsDialogRoute: typeof ComponentsDialogRoute
+  ComponentsPaginationRoute: typeof ComponentsPaginationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/pagination': {
+      id: '/components/pagination'
+      path: '/components/pagination'
+      fullPath: '/components/pagination'
+      preLoaderRoute: typeof ComponentsPaginationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/dialog': {
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsButtonRoute: ComponentsButtonRoute,
   ComponentsCardRoute: ComponentsCardRoute,
   ComponentsDialogRoute: ComponentsDialogRoute,
+  ComponentsPaginationRoute: ComponentsPaginationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

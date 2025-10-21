@@ -54,6 +54,7 @@ export const Route = createRootRoute({
               { title: "Accordion", category: "Layout" },
               { title: "Card", category: "Layout" },
               { title: "Dialog", category: "Overlay" },
+              { title: "Pagination", category: "Navigation" },
             ]}
           />
           <main className="flex-1">

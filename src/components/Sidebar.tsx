@@ -19,13 +19,15 @@ export function Sidebar({ components }: SidebarProps) {
       Accordion: "/components/accordion",
       Card: "/components/card",
       Dialog: "/components/dialog",
+      Pagination: "/components/pagination",
     };
     return routeMap[title] as
       | "/components/button"
       | "/components/alert"
       | "/components/accordion"
       | "/components/card"
-      | "/components/dialog";
+      | "/components/dialog"
+      | "/components/pagination";
   };
 
   return (
