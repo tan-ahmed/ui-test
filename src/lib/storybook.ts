@@ -32,6 +32,8 @@ export const STORYBOOK_PATHS = {
   CARD: "/story/components-card--default",
   CHECKBOX: "/story/ui-checkbox--docs",
   DIALOG: "/story/ui-dialog--docs",
+  CAROUSEL: "/story/ui-carousel--default-carousel",
+  PAGINATION: "/story/ui-pagination--docs",
 } as const;
 
 /**

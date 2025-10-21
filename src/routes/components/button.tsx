@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { Copy } from "lucide-react";
 import { useState } from "react";
+import { getComponentStorybookUrl } from "@/lib/storybook";
 
 export const Route = createFileRoute("/components/button")({
   component: ButtonPage,
@@ -155,7 +156,7 @@ export function ButtonDemo() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Links</h2>
           <div className="space-y-2">
             <a
-              href="/storybook/?path=/story/components-button--default"
+              href={getComponentStorybookUrl("BUTTON")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
