@@ -26,12 +26,12 @@ export function getStorybookUrl(path: string): string {
  * Predefined Storybook paths for common components
  */
 export const STORYBOOK_PATHS = {
-  BUTTON: "/docs/ui-button--docs",
-  ALERT: "/docs/ui-alert--docs",
-  ACCORDION: "/docs/ui-accordion--docs",
+  BUTTON: "/story/ui-button--docs",
+  ALERT: "/story/ui-alert--docs",
+  ACCORDION: "/story/ui-accordion--docs",
   CARD: "/story/components-card--default",
-  CHECKBOX: "/docs/ui-checkbox--docs",
-  DIALOG: "/docs/ui-dialog--docs",
+  CHECKBOX: "/story/ui-checkbox--docs",
+  DIALOG: "/story/ui-dialog--docs",
 } as const;
 
 /**
