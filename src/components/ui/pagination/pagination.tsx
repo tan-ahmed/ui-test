@@ -7,7 +7,6 @@ export interface PaginationProps {
   itemsPerPage: number;
   onPageChange: (page: number) => void;
   showItemsPerPage?: boolean;
-  className?: string;
 }
 
 export function Pagination({
@@ -16,7 +15,6 @@ export function Pagination({
   itemsPerPage,
   onPageChange,
   showItemsPerPage = true,
-  className,
 }: PaginationProps) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startItem = (currentPage - 1) * itemsPerPage + 1;
@@ -35,12 +33,7 @@ export function Pagination({
   };
 
   return (
-    <div
-      className={cn(
-        "flex items-center justify-between w-full max-w-xs",
-        className
-      )}
-    >
+    <div className="flex items-center justify-between w-full max-w-xs">
       {showItemsPerPage && (
         <span className="text-sm text-gray-700 font-medium">
           Items per page: {itemsPerPage}

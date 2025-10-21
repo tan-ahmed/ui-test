@@ -9,6 +9,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  args: {
+    currentPage: 1,
+    totalItems: 100,
+    itemsPerPage: 10,
+    showItemsPerPage: true,
+    onPageChange: () => {},
+  },
   argTypes: {
     currentPage: {
       control: { type: "number", min: 1 },
@@ -37,13 +44,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    currentPage: 1,
-    totalItems: 100,
-    itemsPerPage: 10,
-    showItemsPerPage: true,
-    onPageChange: () => {},
-  },
   render: function Render(args) {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
 
