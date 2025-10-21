@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
+import { getBaseStorybookUrl } from "../lib/storybook";
 
 interface SidebarProps {
   components: Array<{
@@ -69,7 +70,7 @@ export function Sidebar({ components }: SidebarProps) {
 
         <div className="mt-8 pt-6 border-t border-gray-200">
           <a
-            href="http://localhost:6007"
+            href={getBaseStorybookUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100 transition-colors"

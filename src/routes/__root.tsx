@@ -1,5 +1,6 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Sidebar } from "../components/Sidebar";
+import { getBaseStorybookUrl } from "../lib/storybook";
 
 export const Route = createRootRoute({
   component: () => (
@@ -34,7 +35,7 @@ export const Route = createRootRoute({
                   Home
                 </Link>
                 <a
-                  href="http://localhost:6007"
+                  href={getBaseStorybookUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"

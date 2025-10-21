@@ -1,25 +1,35 @@
 /**
- * Generates Storybook URLs that work in both local development and production
+ * Check if we're in development environment
  */
-export function getStorybookUrl(path: string): string {
-  // Check if we're in development (localhost) or production
-  const isDevelopment =
+function isDevelopment(): boolean {
+  return (
     typeof window !== "undefined" &&
     (window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1" ||
-      window.location.hostname.includes("localhost"));
+      window.location.hostname.includes("localhost"))
+  );
+}
 
-  if (isDevelopment) {
-    // Local development - use localhost:6006
-    return `http://localhost:6006/?path=${path}`;
+/**
+ * Get the base Storybook URL (without any specific path)
+ */
+export function getBaseStorybookUrl(): string {
+  if (isDevelopment()) {
+    return "http://localhost:6006";
   } else {
-    // Production - use the current domain with /storybook/ prefix
     const baseUrl =
       typeof window !== "undefined"
         ? `${window.location.protocol}//${window.location.host}`
         : "";
-    return `${baseUrl}/storybook/?path=${path}`;
+    return `${baseUrl}/storybook`;
   }
+}
+
+/**
+ * Generates Storybook URLs that work in both local development and production
+ */
+export function getStorybookUrl(path: string): string {
+  return `${getBaseStorybookUrl()}/?path=${path}`;
 }
 
 /**
