@@ -26,7 +26,8 @@ const meta = {
     },
     collapsible: {
       control: "boolean",
-      description: "Whether items can be collapsed (only for type='single')",
+      description:
+        "When enabled, users can click an open section to close it. When disabled, users must click a different section to close the current one (only works with single selection mode)",
     },
   },
 } satisfies Meta<typeof Accordion>;
@@ -173,56 +174,6 @@ export const MultipleOpen: Story = {
         <AccordionTrigger>Section 3</AccordionTrigger>
         <AccordionContent>
           <p>All three sections can be open at once!</p>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  ),
-};
-
-// Full Width
-export const FullWidth: Story = {
-  args: {
-    type: "single",
-    collapsible: true,
-    size: "lg",
-  },
-  render: (args) => (
-    <Accordion {...args} style={{ maxWidth: "1280px", width: "100%" }}>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Section 1</AccordionTrigger>
-        <AccordionContent>
-          <div style={{ maxWidth: "960px" }}>
-            <p className="mb-4">
-              Accordion supports full width property, so you can create more
-              easily responsive design. Width will be based on the parent
-              container. Width must never exceed 1280px with text never
-              exceeding 960px.
-            </p>
-            <p>
-              Curabitur tempor quis eros tempus lacinia. Nam bibendum
-              pellentesque quam a convallis. Sed ut vulputate nisi. Integer in
-              felis sed leo vestibulum venenatis. Suspendisse quis arcu sem.
-            </p>
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Section 2</AccordionTrigger>
-        <AccordionContent>
-          <div style={{ maxWidth: "960px" }}>
-            <p>
-              Content for section 2 in full width mode. The text container is
-              constrained to 960px for optimal readability.
-            </p>
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Section 3</AccordionTrigger>
-        <AccordionContent>
-          <div style={{ maxWidth: "960px" }}>
-            <p>Content for section 3 in full width mode.</p>
-          </div>
         </AccordionContent>
       </AccordionItem>
     </Accordion>
