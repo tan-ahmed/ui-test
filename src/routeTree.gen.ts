@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
 import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
+import { Route as ComponentsCarouselRouteImport } from './routes/components/carousel'
 import { Route as ComponentsCardRouteImport } from './routes/components/card'
 import { Route as ComponentsButtonRouteImport } from './routes/components/button'
 import { Route as ComponentsAlertRouteImport } from './routes/components/alert'
@@ -30,6 +31,11 @@ const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
 const ComponentsDialogRoute = ComponentsDialogRouteImport.update({
   id: '/components/dialog',
   path: '/components/dialog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCarouselRoute = ComponentsCarouselRouteImport.update({
+  id: '/components/carousel',
+  path: '/components/carousel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsCardRoute = ComponentsCardRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/components/alert': typeof ComponentsAlertRoute
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
+  '/components/carousel': typeof ComponentsCarouselRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/components/alert': typeof ComponentsAlertRoute
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
+  '/components/carousel': typeof ComponentsCarouselRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/components/alert': typeof ComponentsAlertRoute
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
+  '/components/carousel': typeof ComponentsCarouselRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/components/alert'
     | '/components/button'
     | '/components/card'
+    | '/components/carousel'
     | '/components/dialog'
     | '/components/pagination'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/components/alert'
     | '/components/button'
     | '/components/card'
+    | '/components/carousel'
     | '/components/dialog'
     | '/components/pagination'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/components/alert'
     | '/components/button'
     | '/components/card'
+    | '/components/carousel'
     | '/components/dialog'
     | '/components/pagination'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ComponentsAlertRoute: typeof ComponentsAlertRoute
   ComponentsButtonRoute: typeof ComponentsButtonRoute
   ComponentsCardRoute: typeof ComponentsCardRoute
+  ComponentsCarouselRoute: typeof ComponentsCarouselRoute
   ComponentsDialogRoute: typeof ComponentsDialogRoute
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
 }
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/components/dialog'
       fullPath: '/components/dialog'
       preLoaderRoute: typeof ComponentsDialogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/carousel': {
+      id: '/components/carousel'
+      path: '/components/carousel'
+      fullPath: '/components/carousel'
+      preLoaderRoute: typeof ComponentsCarouselRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/card': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsAlertRoute: ComponentsAlertRoute,
   ComponentsButtonRoute: ComponentsButtonRoute,
   ComponentsCardRoute: ComponentsCardRoute,
+  ComponentsCarouselRoute: ComponentsCarouselRoute,
   ComponentsDialogRoute: ComponentsDialogRoute,
   ComponentsPaginationRoute: ComponentsPaginationRoute,
 }

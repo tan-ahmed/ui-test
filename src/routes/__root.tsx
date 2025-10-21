@@ -53,6 +53,7 @@ export const Route = createRootRoute({
               { title: "Alert", category: "Feedback" },
               { title: "Accordion", category: "Layout" },
               { title: "Card", category: "Layout" },
+              { title: "Carousel", category: "Layout" },
               { title: "Dialog", category: "Overlay" },
               { title: "Pagination", category: "Navigation" },
             ]}

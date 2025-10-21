@@ -18,6 +18,7 @@ export function Sidebar({ components }: SidebarProps) {
       Alert: "/components/alert",
       Accordion: "/components/accordion",
       Card: "/components/card",
+      Carousel: "/components/carousel",
       Dialog: "/components/dialog",
       Pagination: "/components/pagination",
     };
@@ -26,6 +27,7 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/alert"
       | "/components/accordion"
       | "/components/card"
+      | "/components/carousel"
       | "/components/dialog"
       | "/components/pagination";
   };
