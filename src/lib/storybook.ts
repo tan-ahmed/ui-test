@@ -44,6 +44,7 @@ export const STORYBOOK_PATHS = {
   DIALOG: "/story/ui-dialog--docs",
   CAROUSEL: "/story/ui-carousel--default-carousel",
   PAGINATION: "/story/ui-pagination--docs",
+  TABS: "/story/ui-tabs--docs",
 } as const;
 
 /**

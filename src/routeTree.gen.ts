@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComponentsTabsRouteImport } from './routes/components/tabs'
 import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
 import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
 import { Route as ComponentsCheckboxRouteImport } from './routes/components/checkbox'
@@ -22,6 +23,11 @@ import { Route as ComponentsAccordionRouteImport } from './routes/components/acc
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
+  id: '/components/tabs',
+  path: '/components/tabs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/tabs'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/tabs'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/tabs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   ComponentsCheckboxRoute: typeof ComponentsCheckboxRoute
   ComponentsDialogRoute: typeof ComponentsDialogRoute
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
+  ComponentsTabsRoute: typeof ComponentsTabsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/tabs': {
+      id: '/components/tabs'
+      path: '/components/tabs'
+      fullPath: '/components/tabs'
+      preLoaderRoute: typeof ComponentsTabsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/pagination': {
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsCheckboxRoute: ComponentsCheckboxRoute,
   ComponentsDialogRoute: ComponentsDialogRoute,
   ComponentsPaginationRoute: ComponentsPaginationRoute,
+  ComponentsTabsRoute: ComponentsTabsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -57,6 +57,7 @@ export const Route = createRootRoute({
               { title: "Carousel", category: "Layout" },
               { title: "Dialog", category: "Overlay" },
               { title: "Pagination", category: "Navigation" },
+              { title: "Tabs", category: "Navigation" },
             ]}
           />
           <main className="flex-1">

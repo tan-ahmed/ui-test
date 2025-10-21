@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./dialog";
-import { Button } from "./button/button";
+import { Button } from "../button/button";
 
 const meta = {
   title: "UI/Dialog",

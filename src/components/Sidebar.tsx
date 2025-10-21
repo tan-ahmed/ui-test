@@ -23,6 +23,7 @@ export function Sidebar({ components }: SidebarProps) {
       Checkbox: "/components/checkbox",
       Dialog: "/components/dialog",
       Pagination: "/components/pagination",
+      Tabs: "/components/tabs",
     };
     return routeMap[title] as
       | "/components/button"
@@ -32,7 +33,8 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/carousel"
       | "/components/checkbox"
       | "/components/dialog"
-      | "/components/pagination";
+      | "/components/pagination"
+      | "/components/tabs";
   };
 
   return (
