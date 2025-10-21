@@ -125,7 +125,7 @@ export function AlertDemo() {
           </p>
           <div className="p-8 bg-gray-50 rounded-lg border">
             <div className="space-y-3">
-              <Alert variant="default">
+              <Alert variant="success">
                 <strong>Default:</strong> This is a default alert message.
               </Alert>
               <Alert variant="success">

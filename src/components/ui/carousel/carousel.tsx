@@ -173,7 +173,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 function CarouselPrevious({
   className,
   variant = "text",
-  size = "icon",
+  size = "sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { scrollPrev, canScrollPrev } = useCarousel();
@@ -197,7 +197,7 @@ function CarouselPrevious({
 function CarouselNext({
   className,
   variant = "text",
-  size = "icon",
+  size = "sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { scrollNext, canScrollNext } = useCarousel();
@@ -282,7 +282,7 @@ function CarouselAutoplay({
 }: React.ComponentProps<"button"> & { autoplayInterval?: number }) {
   const { api } = useCarousel();
   const [isPlaying, setIsPlaying] = React.useState(true);
-  const intervalRef = React.useRef<NodeJS.Timeout>();
+  const intervalRef = React.useRef<ReturnType<typeof setInterval>>();
 
   React.useEffect(() => {
     if (!api || !isPlaying) {
@@ -293,7 +293,7 @@ function CarouselAutoplay({
     }
 
     intervalRef.current = setInterval(() => {
-      api.scrollNext();
+      api.scrollNext(false);
     }, autoplayInterval);
 
     return () => {

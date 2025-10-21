@@ -42,6 +42,7 @@ export const Default: Story = {
     totalItems: 100,
     itemsPerPage: 10,
     showItemsPerPage: true,
+    onPageChange: () => {},
   },
   render: function Render(args) {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
@@ -67,6 +68,7 @@ export const MiddlePage: Story = {
     totalItems: 100,
     itemsPerPage: 10,
     showItemsPerPage: true,
+    onPageChange: () => {},
   },
   render: function Render(args) {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
@@ -92,6 +94,7 @@ export const LastPage: Story = {
     totalItems: 100,
     itemsPerPage: 10,
     showItemsPerPage: true,
+    onPageChange: () => {},
   },
   render: function Render(args) {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
@@ -117,6 +120,7 @@ export const WithoutItemsPerPage: Story = {
     totalItems: 50,
     itemsPerPage: 5,
     showItemsPerPage: false,
+    onPageChange: () => {},
   },
   render: function Render(args) {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
@@ -142,6 +146,7 @@ export const Interactive: Story = {
     totalItems: 100,
     itemsPerPage: 10,
     showItemsPerPage: true,
+    onPageChange: () => {},
   },
   render: function Render(args) {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
