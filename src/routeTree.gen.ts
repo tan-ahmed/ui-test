@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
 import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
+import { Route as ComponentsCheckboxRouteImport } from './routes/components/checkbox'
 import { Route as ComponentsCarouselRouteImport } from './routes/components/carousel'
 import { Route as ComponentsCardRouteImport } from './routes/components/card'
 import { Route as ComponentsButtonRouteImport } from './routes/components/button'
@@ -31,6 +32,11 @@ const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
 const ComponentsDialogRoute = ComponentsDialogRouteImport.update({
   id: '/components/dialog',
   path: '/components/dialog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCheckboxRoute = ComponentsCheckboxRouteImport.update({
+  id: '/components/checkbox',
+  path: '/components/checkbox',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsCarouselRoute = ComponentsCarouselRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
   '/components/carousel': typeof ComponentsCarouselRoute
+  '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
   '/components/carousel': typeof ComponentsCarouselRoute
+  '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/components/button': typeof ComponentsButtonRoute
   '/components/card': typeof ComponentsCardRoute
   '/components/carousel': typeof ComponentsCarouselRoute
+  '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/card'
     | '/components/carousel'
+    | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/card'
     | '/components/carousel'
+    | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/card'
     | '/components/carousel'
+    | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   ComponentsButtonRoute: typeof ComponentsButtonRoute
   ComponentsCardRoute: typeof ComponentsCardRoute
   ComponentsCarouselRoute: typeof ComponentsCarouselRoute
+  ComponentsCheckboxRoute: typeof ComponentsCheckboxRoute
   ComponentsDialogRoute: typeof ComponentsDialogRoute
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
 }
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/components/dialog'
       fullPath: '/components/dialog'
       preLoaderRoute: typeof ComponentsDialogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/checkbox': {
+      id: '/components/checkbox'
+      path: '/components/checkbox'
+      fullPath: '/components/checkbox'
+      preLoaderRoute: typeof ComponentsCheckboxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/carousel': {
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsButtonRoute: ComponentsButtonRoute,
   ComponentsCardRoute: ComponentsCardRoute,
   ComponentsCarouselRoute: ComponentsCarouselRoute,
+  ComponentsCheckboxRoute: ComponentsCheckboxRoute,
   ComponentsDialogRoute: ComponentsDialogRoute,
   ComponentsPaginationRoute: ComponentsPaginationRoute,
 }

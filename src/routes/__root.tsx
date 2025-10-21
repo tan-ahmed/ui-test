@@ -1,5 +1,4 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Sidebar } from "../components/Sidebar";
 
 export const Route = createRootRoute({
@@ -50,6 +49,7 @@ export const Route = createRootRoute({
           <Sidebar
             components={[
               { title: "Button", category: "Form Controls" },
+              { title: "Checkbox", category: "Form Controls" },
               { title: "Alert", category: "Feedback" },
               { title: "Accordion", category: "Layout" },
               { title: "Card", category: "Layout" },
@@ -63,7 +63,6 @@ export const Route = createRootRoute({
           </main>
         </div>
       </div>
-      <TanStackRouterDevtools />
     </>
   ),
 });

@@ -19,6 +19,7 @@ export function Sidebar({ components }: SidebarProps) {
       Accordion: "/components/accordion",
       Card: "/components/card",
       Carousel: "/components/carousel",
+      Checkbox: "/components/checkbox",
       Dialog: "/components/dialog",
       Pagination: "/components/pagination",
     };
@@ -28,6 +29,7 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/accordion"
       | "/components/card"
       | "/components/carousel"
+      | "/components/checkbox"
       | "/components/dialog"
       | "/components/pagination";
   };

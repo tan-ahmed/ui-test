@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import { Card } from "./ui/card";
+import { Checkbox } from "./ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { ExternalLink, Code, Palette, Copy } from "lucide-react";
+import { ExternalLink, Copy } from "lucide-react";
 import { useState } from "react";
 
 interface ComponentCardProps {
@@ -258,6 +259,36 @@ export function CardDemo() {
             This is a preview of the card component.
           </p>
         </Card>
+      ),
+    },
+    {
+      title: "Checkbox",
+      description:
+        "A checkbox component for selecting multiple options from a list.",
+      category: "Form Controls",
+      storybookUrl: "http://localhost:6007/?path=/story/ui-checkbox--default",
+      codeExample: `import { Checkbox } from "@/components/ui/checkbox"
+
+export function CheckboxDemo() {
+  return (
+    <div className="flex items-center gap-3">
+      <Checkbox id="terms" defaultChecked />
+      <label htmlFor="terms" className="text-sm font-medium cursor-pointer">
+        Accept terms and conditions
+      </label>
+    </div>
+  )
+}`,
+      preview: (
+        <div className="flex items-center gap-3">
+          <Checkbox id="terms-showcase" defaultChecked />
+          <label
+            htmlFor="terms-showcase"
+            className="text-sm font-medium cursor-pointer"
+          >
+            Accept terms and conditions
+          </label>
+        </div>
       ),
     },
     {
