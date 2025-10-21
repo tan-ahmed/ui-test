@@ -136,24 +136,67 @@ export const Variants: Story = {
   ),
 };
 
-// Sizes - All sizes in one story
-export const Sizes: Story = {
+// All Sizes - All variants and sizes in one comprehensive story
+export const AllSizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4">
-      <h3 className="text-lg font-semibold">Button Sizes</h3>
-      <div className="flex items-center gap-4">
-        <Button variant="fill" size="sm">
-          Small
-        </Button>
-        <Button variant="fill" size="md">
-          Medium
-        </Button>
-        <Button variant="fill" size="lg">
-          Large
-        </Button>
-        <Button variant="fill" size="xl">
-          Extra Large
-        </Button>
+    <div className="flex flex-col gap-6">
+      <h3 className="text-lg font-semibold">All Button Sizes & Variants</h3>
+
+      {/* Fill Variant Sizes */}
+      <div className="flex flex-col gap-2">
+        <h4 className="text-md font-medium text-gray-700">Fill Variant</h4>
+        <div className="flex items-center gap-4">
+          <Button variant="fill" size="sm">
+            Small
+          </Button>
+          <Button variant="fill" size="md">
+            Medium
+          </Button>
+          <Button variant="fill" size="lg">
+            Large
+          </Button>
+          <Button variant="fill" size="xl">
+            Extra Large
+          </Button>
+        </div>
+      </div>
+
+      {/* Outline Variant Sizes */}
+      <div className="flex flex-col gap-2">
+        <h4 className="text-md font-medium text-gray-700">Outline Variant</h4>
+        <div className="flex items-center gap-4">
+          <Button variant="outline" size="sm">
+            Small
+          </Button>
+          <Button variant="outline" size="md">
+            Medium
+          </Button>
+          <Button variant="outline" size="lg">
+            Large
+          </Button>
+          <Button variant="outline" size="xl">
+            Extra Large
+          </Button>
+        </div>
+      </div>
+
+      {/* Text Variant Sizes */}
+      <div className="flex flex-col gap-2">
+        <h4 className="text-md font-medium text-gray-700">Text Variant</h4>
+        <div className="flex items-center gap-4">
+          <Button variant="text" size="sm">
+            Small
+          </Button>
+          <Button variant="text" size="md">
+            Medium
+          </Button>
+          <Button variant="text" size="lg">
+            Large
+          </Button>
+          <Button variant="text" size="xl">
+            Extra Large
+          </Button>
+        </div>
       </div>
     </div>
   ),
@@ -231,71 +274,6 @@ export const FullWidth: Story = {
         <Button variant="fill" fullWidth iconRight={<ChevronRightIcon />}>
           Full Width with Icon
         </Button>
-      </div>
-    </div>
-  ),
-};
-
-// Outline Sizes - All sizes in one story
-export const OutlineSizes: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4">
-      <h3 className="text-lg font-semibold">Outline Button Sizes</h3>
-      <div className="flex items-center gap-4">
-        <Button variant="outline" size="sm">
-          Small Outline
-        </Button>
-        <Button variant="outline" size="md">
-          Medium Outline
-        </Button>
-        <Button variant="outline" size="lg">
-          Large Outline
-        </Button>
-        <Button variant="outline" size="xl">
-          Extra Large Outline
-        </Button>
-      </div>
-    </div>
-  ),
-};
-
-// Text Sizes - All sizes in one story
-export const TextSizes: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4">
-      <h3 className="text-lg font-semibold">Text Button Sizes</h3>
-      <div className="flex items-center gap-4">
-        <Button variant="text" size="sm">
-          Small Text Link
-        </Button>
-        <Button variant="text" size="md">
-          Medium Text Link
-        </Button>
-        <Button variant="text" size="lg">
-          Large Text Link
-        </Button>
-        <Button variant="text" size="xl">
-          Extra Large Text Link
-        </Button>
-      </div>
-    </div>
-  ),
-};
-
-// Focus States Demo
-export const FocusStates: Story = {
-  render: () => (
-    <div className="flex flex-col gap-8 p-8">
-      <div className="flex flex-col gap-4">
-        <h3 className="text-lg font-semibold">Tab Focus States</h3>
-        <p className="text-sm text-gray-600">
-          Use Tab key to navigate and see focus styling
-        </p>
-        <div className="flex gap-4">
-          <Button variant="fill">Filled Button</Button>
-          <Button variant="outline">Outline Button</Button>
-          <Button variant="text">Text Link</Button>
-        </div>
       </div>
     </div>
   ),
