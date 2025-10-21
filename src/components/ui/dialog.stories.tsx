@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -35,9 +36,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args) => (
-    <Dialog {...args}>
+const DefaultDialog = (args: React.ComponentProps<typeof Dialog>) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog {...args} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">Open Dialog</Button>
       </DialogTrigger>
@@ -55,45 +58,27 @@ export const Default: Story = {
           </p>
         </div>
         <DialogFooter>
-          <Button variant="outline">Cancel</Button>
-          <Button>Continue</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button onClick={() => setOpen(false)}>Continue</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  ),
+  );
 };
 
-export const WithoutCloseButton: Story = {
-  render: (args) => (
-    <Dialog {...args}>
-      <DialogTrigger asChild>
-        <Button variant="outline">Open Dialog</Button>
-      </DialogTrigger>
-      <DialogContent showCloseButton={false}>
-        <DialogHeader>
-          <DialogTitle>Dialog Without Close Button</DialogTitle>
-          <DialogDescription>
-            This dialog doesn't have a close button in the top-right corner.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="py-4">
-          <p className="text-sm text-gray-600">
-            You can only close this dialog by clicking the buttons below or
-            pressing Escape.
-          </p>
-        </div>
-        <DialogFooter>
-          <Button variant="outline">Cancel</Button>
-          <Button>Continue</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  ),
+export const Default: Story = {
+  render: (args) => <DefaultDialog {...args} />,
 };
 
-export const ConfirmationDialog: Story = {
-  render: (args) => (
-    <Dialog {...args}>
+const ConfirmationDialogComponent = (
+  args: React.ComponentProps<typeof Dialog>
+) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog {...args} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
           variant="fill"
@@ -111,22 +96,31 @@ export const ConfirmationDialog: Story = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="outline">Cancel</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
           <Button
             variant="fill"
             className="bg-red-600 hover:bg-red-700 text-white"
+            onClick={() => setOpen(false)}
           >
             Delete
           </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  ),
+  );
 };
 
-export const FormDialog: Story = {
-  render: (args) => (
-    <Dialog {...args}>
+export const ConfirmationDialog: Story = {
+  render: (args) => <ConfirmationDialogComponent {...args} />,
+};
+
+const FormDialogComponent = (args: React.ComponentProps<typeof Dialog>) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog {...args} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>Add New Item</Button>
       </DialogTrigger>
@@ -160,17 +154,25 @@ export const FormDialog: Story = {
           </div>
         </div>
         <DialogFooter>
-          <Button variant="outline">Cancel</Button>
-          <Button>Add Item</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button onClick={() => setOpen(false)}>Add Item</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  ),
+  );
 };
 
-export const LargeContent: Story = {
-  render: (args) => (
-    <Dialog {...args}>
+export const FormDialog: Story = {
+  render: (args) => <FormDialogComponent {...args} />,
+};
+
+const LargeContentDialog = (args: React.ComponentProps<typeof Dialog>) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog {...args} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">View Details</Button>
       </DialogTrigger>
@@ -210,15 +212,29 @@ export const LargeContent: Story = {
                 implementation, including code examples, configuration options,
                 and best practices. The content is intentionally long to
                 demonstrate how the dialog handles scrolling content.
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+                error suscipit vitae praesentium molestias ex?
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+                error suscipit vitae praesentium molestias ex?
               </p>
             </div>
           </div>
         </div>
         <DialogFooter>
-          <Button variant="outline">Close</Button>
-          <Button>Learn More</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Close
+          </Button>
+          <Button onClick={() => setOpen(false)}>Learn More</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  ),
+  );
+};
+
+export const LargeContent: Story = {
+  render: (args) => <LargeContentDialog {...args} />,
 };
