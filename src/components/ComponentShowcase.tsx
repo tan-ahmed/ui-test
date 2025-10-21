@@ -18,6 +18,7 @@ import {
 } from "./ui/dialog";
 import { ExternalLink, Copy } from "lucide-react";
 import { useState } from "react";
+import { getComponentStorybookUrl } from "../lib/storybook";
 
 interface ComponentCardProps {
   title: string;
@@ -128,8 +129,7 @@ export function ComponentShowcase() {
       description:
         "Interactive elements for user actions with multiple variants and sizes.",
       category: "Form Controls",
-      storybookUrl:
-        "http://localhost:6007/?path=/story/components-button--default",
+      storybookUrl: getComponentStorybookUrl("BUTTON"),
       codeExample: `import { Button } from "@/components/ui/button"
 
 export function ButtonDemo() {
@@ -165,8 +165,7 @@ export function ButtonDemo() {
       title: "Alert",
       description: "Display important messages and notifications to users.",
       category: "Feedback",
-      storybookUrl:
-        "http://localhost:6007/?path=/story/components-alert--default",
+      storybookUrl: getComponentStorybookUrl("ALERT"),
       codeExample: `import { Alert } from "@/components/ui/alert"
 
 export function AlertDemo() {
@@ -197,8 +196,7 @@ export function AlertDemo() {
       title: "Accordion",
       description: "Collapsible content sections for organizing information.",
       category: "Layout",
-      storybookUrl:
-        "http://localhost:6007/?path=/story/components-accordion--default",
+      storybookUrl: getComponentStorybookUrl("ACCORDION"),
       codeExample: `import {
   Accordion,
   AccordionContent,
@@ -238,8 +236,7 @@ export function AccordionDemo() {
       description:
         "Container component for grouping related content and actions.",
       category: "Layout",
-      storybookUrl:
-        "http://localhost:6007/?path=/story/components-card--default",
+      storybookUrl: getComponentStorybookUrl("CARD"),
       codeExample: `import { Card } from "@/components/ui/card"
 
 export function CardDemo() {
@@ -266,7 +263,7 @@ export function CardDemo() {
       description:
         "A checkbox component for selecting multiple options from a list.",
       category: "Form Controls",
-      storybookUrl: "http://localhost:6007/?path=/story/ui-checkbox--default",
+      storybookUrl: getComponentStorybookUrl("CHECKBOX"),
       codeExample: `import { Checkbox } from "@/components/ui/checkbox"
 
 export function CheckboxDemo() {
@@ -296,8 +293,7 @@ export function CheckboxDemo() {
       description:
         "Modal dialogs for focused user interactions and confirmations.",
       category: "Overlay",
-      storybookUrl:
-        "http://localhost:6007/?path=/story/components-dialog--default",
+      storybookUrl: getComponentStorybookUrl("DIALOG"),
       codeExample: `import { Button } from "@/components/ui/button"
 import {
   Dialog,
