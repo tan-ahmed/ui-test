@@ -23,7 +23,9 @@ export function useComponentTodos() {
       { id: "cards", content: "Card component", status: "completed" },
       { id: "carousel", content: "Carousel component", status: "completed" },
       { id: "checkbox", content: "Checkbox component", status: "completed" },
+      { id: "dialog", content: "Dialog component", status: "completed" },
       { id: "radio", content: "Radio component", status: "completed" },
+      { id: "tabs", content: "Tabs component", status: "completed" },
       { id: "select", content: "Select component", status: "pending" },
       { id: "input", content: "Input component", status: "pending" },
       { id: "drawer", content: "Drawer component", status: "pending" },
@@ -52,9 +54,9 @@ export function useComponentTodos() {
       {
         id: "progress-bar",
         content: "Progress bar component",
-        status: "pending",
+        status: "completed",
       },
-      { id: "spinner", content: "Spinner component", status: "pending" },
+      { id: "spinner", content: "Spinner component", status: "completed" },
       {
         id: "sort-filter",
         content: "Sort filter component",

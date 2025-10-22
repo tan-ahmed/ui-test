@@ -1,4 +1,6 @@
-import { CheckCircle, Circle, Clock, Target } from "lucide-react";
+import { AiOutlineCheckCircle, AiOutlineClockCircle } from "react-icons/ai";
+import { BsCircle } from "react-icons/bs";
+import { TbTarget } from "react-icons/tb";
 import { Card } from "./ui/card";
 import { useComponentTodos } from "../hooks/useComponentTodos";
 
@@ -26,15 +28,15 @@ export function ComponentProgress() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "completed":
-        return <CheckCircle className="w-4 h-4 text-green-600" />;
+        return <AiOutlineCheckCircle className="w-4 h-4 text-green-600" />;
       case "in_progress":
-        return <Clock className="w-4 h-4 text-blue-600" />;
+        return <AiOutlineClockCircle className="w-4 h-4 text-blue-600" />;
       case "pending":
-        return <Circle className="w-4 h-4 text-gray-400" />;
+        return <BsCircle className="w-4 h-4 text-gray-400" />;
       case "cancelled":
-        return <Circle className="w-4 h-4 text-gray-300" />;
+        return <BsCircle className="w-4 h-4 text-gray-300" />;
       default:
-        return <Circle className="w-4 h-4 text-gray-400" />;
+        return <BsCircle className="w-4 h-4 text-gray-400" />;
     }
   };
 
@@ -59,7 +61,7 @@ export function ComponentProgress() {
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-            <Target className="w-5 h-5 text-purple-600" />
+            <TbTarget className="w-5 h-5 text-purple-600" />
             Component Progress
           </h3>
           <div className="text-sm text-gray-600">
@@ -84,17 +86,17 @@ export function ComponentProgress() {
         {/* Status Summary */}
         <div className="grid grid-cols-3 gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-green-600" />
+            <AiOutlineCheckCircle className="w-4 h-4 text-green-600" />
             <span className="text-gray-600">{stats.completed} Completed</span>
           </div>
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-blue-600" />
+            <AiOutlineClockCircle className="w-4 h-4 text-blue-600" />
             <span className="text-gray-600">
               {stats.inProgress} In Progress
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <Circle className="w-4 h-4 text-gray-400" />
+            <BsCircle className="w-4 h-4 text-gray-400" />
             <span className="text-gray-600">{stats.pending} Pending</span>
           </div>
         </div>
