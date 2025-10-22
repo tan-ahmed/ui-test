@@ -197,7 +197,11 @@ export function SpinnerDemo() {
             </div>
           )}
         </div>
+      </div>
 
+      {/* Links */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Links</h2>
         <div className="flex gap-2">
           <a
             href={getComponentStorybookUrl("SPINNER")}

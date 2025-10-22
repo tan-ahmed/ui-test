@@ -109,41 +109,6 @@ export function ProgressDemo() {
                   <h3 className="text-lg font-semibold">Animated Progress</h3>
                   <Progress value={progress} showPercentage />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold">
-                    Multiple Progress Bars
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-600">
-                        <span>Task 1</span>
-                        <span>100%</span>
-                      </div>
-                      <Progress value={100} className="w-full" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-600">
-                        <span>Task 2</span>
-                        <span>75%</span>
-                      </div>
-                      <Progress value={75} className="w-full" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-600">
-                        <span>Task 3</span>
-                        <span>50%</span>
-                      </div>
-                      <Progress value={50} className="w-full" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-600">
-                        <span>Task 4</span>
-                        <span>25%</span>
-                      </div>
-                      <Progress value={25} className="w-full" />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           ) : (
@@ -161,7 +126,11 @@ export function ProgressDemo() {
             </div>
           )}
         </div>
+      </div>
 
+      {/* Links */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Links</h2>
         <div className="flex gap-2">
           <a
             href={getComponentStorybookUrl("PROGRESS")}

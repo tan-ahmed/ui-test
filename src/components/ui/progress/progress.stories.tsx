@@ -93,42 +93,6 @@ export const Animated: Story = {
   },
 };
 
-// Multiple Progress Bars
-export const MultipleBars: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-600">
-          <span>Task 1</span>
-          <span>100%</span>
-        </div>
-        <Progress value={100} className="w-full" />
-      </div>
-      <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-600">
-          <span>Task 2</span>
-          <span>75%</span>
-        </div>
-        <Progress value={75} className="w-full" />
-      </div>
-      <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-600">
-          <span>Task 3</span>
-          <span>50%</span>
-        </div>
-        <Progress value={50} className="w-full" />
-      </div>
-      <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-600">
-          <span>Task 4</span>
-          <span>25%</span>
-        </div>
-        <Progress value={25} className="w-full" />
-      </div>
-    </div>
-  ),
-};
-
 // Custom Styling
 export const CustomStyling: Story = {
   render: () => (

@@ -56,7 +56,7 @@ export function DialogDemo() {
   };
 
   return (
-    <div className="px-6 py-8 max-w-5xl">
+    <div className="px-6 py-8 max-w-5xl mx-auto">
       <div className="mb-8">
         <div className="mb-4">
           <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded-full">
@@ -139,38 +139,6 @@ export function DialogDemo() {
 
       {/* Documentation sections */}
       <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Usage</h2>
-          <div className="bg-gray-50 p-4 rounded-lg border">
-            <pre className="text-sm">
-              <code>{`import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"`}</code>
-            </pre>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Accessibility
-          </h2>
-          <p className="text-gray-600 mb-4">
-            The dialog component is built with accessibility in mind:
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Traps focus within the dialog when open</li>
-            <li>Closes on Escape key press</li>
-            <li>Manages focus restoration when closed</li>
-            <li>Uses proper ARIA attributes</li>
-            <li>Supports keyboard navigation</li>
-          </ul>
-        </section>
-
         <section>
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Links</h2>
           <div className="space-y-2">

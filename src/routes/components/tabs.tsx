@@ -54,7 +54,7 @@ export function TabsDemo() {
   };
 
   return (
-    <div className="px-6 py-8 max-w-5xl">
+    <div className="px-6 py-8 max-w-5xl mx-auto">
       <div className="mb-8">
         <div className="mb-4">
           <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded-full">
@@ -293,23 +293,29 @@ export function TabsDemo() {
         )}
       </div>
 
-      {/* Storybook Link */}
-      <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-lg font-semibold text-purple-900 mb-2">
-              Interactive Examples
-            </h3>
-            <p className="text-purple-700">
-              Explore more tab variations and configurations in Storybook.
-            </p>
-          </div>
+      {/* Links */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Links</h2>
+        <div className="flex gap-2">
           <a
             href={getComponentStorybookUrl("TABS")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100 transition-colors"
           >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
             View in Storybook
           </a>
         </div>

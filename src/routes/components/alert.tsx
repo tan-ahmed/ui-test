@@ -35,7 +35,7 @@ export function AlertDemo() {
   };
 
   return (
-    <div className="px-6 py-8 max-w-5xl">
+    <div className="px-6 py-8 max-w-5xl mx-auto">
       <div className="mb-8">
         <div className="mb-4">
           <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded-full">
