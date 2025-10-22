@@ -25,6 +25,7 @@ export function Sidebar({ components }: SidebarProps) {
       Pagination: "/components/pagination",
       Progress: "/components/progress",
       Radio: "/components/radio",
+      Spinner: "/components/spinner",
       Tabs: "/components/tabs",
     };
     return routeMap[title] as
@@ -38,6 +39,7 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/pagination"
       | "/components/progress"
       | "/components/radio"
+      | "/components/spinner"
       | "/components/tabs";
   };
 

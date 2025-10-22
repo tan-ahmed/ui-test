@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsTabsRouteImport } from './routes/components/tabs'
+import { Route as ComponentsSpinnerRouteImport } from './routes/components/spinner'
 import { Route as ComponentsRadioRouteImport } from './routes/components/radio'
 import { Route as ComponentsProgressRouteImport } from './routes/components/progress'
 import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
@@ -36,6 +37,11 @@ const IndexRoute = IndexRouteImport.update({
 const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
   id: '/components/tabs',
   path: '/components/tabs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSpinnerRoute = ComponentsSpinnerRouteImport.update({
+  id: '/components/spinner',
+  path: '/components/spinner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsRadioRoute = ComponentsRadioRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/components/pagination': typeof ComponentsPaginationRoute
   '/components/progress': typeof ComponentsProgressRoute
   '/components/radio': typeof ComponentsRadioRoute
+  '/components/spinner': typeof ComponentsSpinnerRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRoutesByTo {
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/components/pagination': typeof ComponentsPaginationRoute
   '/components/progress': typeof ComponentsProgressRoute
   '/components/radio': typeof ComponentsRadioRoute
+  '/components/spinner': typeof ComponentsSpinnerRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRoutesById {
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/components/pagination': typeof ComponentsPaginationRoute
   '/components/progress': typeof ComponentsProgressRoute
   '/components/radio': typeof ComponentsRadioRoute
+  '/components/spinner': typeof ComponentsSpinnerRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/components/pagination'
     | '/components/progress'
     | '/components/radio'
+    | '/components/spinner'
     | '/components/tabs'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/components/pagination'
     | '/components/progress'
     | '/components/radio'
+    | '/components/spinner'
     | '/components/tabs'
   id:
     | '__root__'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/components/pagination'
     | '/components/progress'
     | '/components/radio'
+    | '/components/spinner'
     | '/components/tabs'
   fileRoutesById: FileRoutesById
 }
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
   ComponentsProgressRoute: typeof ComponentsProgressRoute
   ComponentsRadioRoute: typeof ComponentsRadioRoute
+  ComponentsSpinnerRoute: typeof ComponentsSpinnerRoute
   ComponentsTabsRoute: typeof ComponentsTabsRoute
 }
 
@@ -220,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/components/tabs'
       fullPath: '/components/tabs'
       preLoaderRoute: typeof ComponentsTabsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/spinner': {
+      id: '/components/spinner'
+      path: '/components/spinner'
+      fullPath: '/components/spinner'
+      preLoaderRoute: typeof ComponentsSpinnerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/radio': {
@@ -308,6 +328,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsPaginationRoute: ComponentsPaginationRoute,
   ComponentsProgressRoute: ComponentsProgressRoute,
   ComponentsRadioRoute: ComponentsRadioRoute,
+  ComponentsSpinnerRoute: ComponentsSpinnerRoute,
   ComponentsTabsRoute: ComponentsTabsRoute,
 }
 export const routeTree = rootRouteImport

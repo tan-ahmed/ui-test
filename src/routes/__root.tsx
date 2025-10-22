@@ -14,6 +14,7 @@ export const Route = createRootRoute({
               { title: "Checkbox", category: "Form Controls" },
               { title: "Progress", category: "Form Controls" },
               { title: "Radio", category: "Form Controls" },
+              { title: "Spinner", category: "Form Controls" },
               { title: "Alert", category: "Feedback" },
               { title: "Accordion", category: "Layout" },
               { title: "Card", category: "Layout" },

@@ -18,6 +18,7 @@ import {
 } from "./ui/dialog";
 import { RadioGroup, RadioGroupItem } from "./ui/radio";
 import { Progress } from "./ui/progress/progress";
+import { Spinner } from "./ui/spinner/spinner";
 import { ExternalLink, Copy } from "lucide-react";
 import { useState } from "react";
 import { getComponentStorybookUrl } from "../lib/storybook";
@@ -411,6 +412,34 @@ export function ProgressDemo() {
         <div className="space-y-4">
           <Progress value={50} showPercentage />
           <Progress value={75} showPercentage />
+        </div>
+      ),
+    },
+    {
+      title: "Spinner",
+      description:
+        "Loading indicator for async operations with multiple sizes and colors.",
+      category: "Form Controls",
+      storybookUrl: getComponentStorybookUrl("SPINNER"),
+      codeExample: `import { Spinner } from "@/components/ui/spinner"
+import { Button } from "@/components/ui/button"
+
+export function SpinnerDemo() {
+  return (
+    <div className="flex items-center gap-4">
+      <Spinner size="sm" color="primary" />
+      <Spinner size="md" color="success" />
+      <Button disabled iconLeft={<Spinner size="sm" />}>
+        Loading...
+      </Button>
+    </div>
+  )
+}`,
+      preview: (
+        <div className="flex items-center gap-4">
+          <Spinner size="sm" color="primary" />
+          <Spinner size="md" color="success" />
+          <Spinner size="lg" color="error" />
         </div>
       ),
     },
