@@ -27,7 +27,8 @@ const meta = {
     },
     collapsible: {
       control: "boolean",
-      description: "Allow users to close an open section by clicking it again",
+      description:
+        "Allow users to close an open section by clicking it again (only applies to type='single')",
     },
   },
 } satisfies Meta<typeof Accordion>;
@@ -160,7 +161,7 @@ export const MultipleOpen: Story = {
         <AccordionContent>
           <p>
             With type="multiple", multiple sections can be open at the same
-            time.
+            time. Note: collapsible behavior is not available for multiple type.
           </p>
         </AccordionContent>
       </AccordionItem>
