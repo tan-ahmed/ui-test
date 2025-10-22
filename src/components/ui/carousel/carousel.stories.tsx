@@ -49,7 +49,7 @@ export const Playground: Story = {
     docs: {
       story: {
         inline: false,
-        iframeHeight: 400,
+        iframeHeight: 800,
       },
     },
   },
@@ -73,10 +73,10 @@ export const Playground: Story = {
   },
   render: function Render(args) {
     const [slideCount, setSlideCount] = useState(5);
-    const [slidesPerView, setSlidesPerView] = useState(2);
+    const [slidesPerView, setSlidesPerView] = useState(3);
     const [slidesToScroll, setSlidesToScroll] = useState(1);
     const [showAutoplay, setShowAutoplay] = useState(true);
-    const [autoplayInterval, setAutoplayInterval] = useState(1500);
+    const [autoplayInterval, setAutoplayInterval] = useState(2000);
     const [loopEnabled, setLoopEnabled] = useState(true);
     const [alignOption, setAlignOption] = useState("center");
 
