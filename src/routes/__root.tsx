@@ -12,6 +12,7 @@ export const Route = createRootRoute({
             components={[
               { title: "Button", category: "Form Controls" },
               { title: "Checkbox", category: "Form Controls" },
+              { title: "Radio", category: "Form Controls" },
               { title: "Alert", category: "Feedback" },
               { title: "Accordion", category: "Layout" },
               { title: "Card", category: "Layout" },

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsTabsRouteImport } from './routes/components/tabs'
+import { Route as ComponentsRadioRouteImport } from './routes/components/radio'
 import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
 import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
 import { Route as ComponentsCheckboxRouteImport } from './routes/components/checkbox'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
   id: '/components/tabs',
   path: '/components/tabs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsRadioRoute = ComponentsRadioRouteImport.update({
+  id: '/components/radio',
+  path: '/components/radio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/radio': typeof ComponentsRadioRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/radio': typeof ComponentsRadioRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/radio': typeof ComponentsRadioRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/radio'
     | '/components/tabs'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/radio'
     | '/components/tabs'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/radio'
     | '/components/tabs'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   ComponentsCheckboxRoute: typeof ComponentsCheckboxRoute
   ComponentsDialogRoute: typeof ComponentsDialogRoute
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
+  ComponentsRadioRoute: typeof ComponentsRadioRoute
   ComponentsTabsRoute: typeof ComponentsTabsRoute
 }
 
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/components/tabs'
       fullPath: '/components/tabs'
       preLoaderRoute: typeof ComponentsTabsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/radio': {
+      id: '/components/radio'
+      path: '/components/radio'
+      fullPath: '/components/radio'
+      preLoaderRoute: typeof ComponentsRadioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/pagination': {
@@ -245,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsCheckboxRoute: ComponentsCheckboxRoute,
   ComponentsDialogRoute: ComponentsDialogRoute,
   ComponentsPaginationRoute: ComponentsPaginationRoute,
+  ComponentsRadioRoute: ComponentsRadioRoute,
   ComponentsTabsRoute: ComponentsTabsRoute,
 }
 export const routeTree = rootRouteImport

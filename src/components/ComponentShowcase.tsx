@@ -16,6 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import { RadioGroup, RadioGroupItem } from "./ui/radio";
 import { ExternalLink, Copy } from "lucide-react";
 import { useState } from "react";
 import { getComponentStorybookUrl } from "../lib/storybook";
@@ -335,6 +336,51 @@ export function DialogDemo() {
             </DialogHeader>
           </DialogContent>
         </Dialog>
+      ),
+    },
+    {
+      title: "Radio",
+      description:
+        "A radio group component for selecting one option from a set of choices.",
+      category: "Form Controls",
+      storybookUrl: getComponentStorybookUrl("RADIO"),
+      codeExample: `import { RadioGroup, RadioGroupItem } from "@/components/ui/radio"
+
+export function RadioDemo() {
+  return (
+    <RadioGroup defaultValue="option1">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option1" id="option1" />
+        <label htmlFor="option1">Option 1</label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option2" id="option2" />
+        <label htmlFor="option2">Option 2</label>
+      </div>
+    </RadioGroup>
+  )
+}`,
+      preview: (
+        <RadioGroup defaultValue="option1">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option1" id="radio-showcase-option1" />
+            <label
+              htmlFor="radio-showcase-option1"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Option 1
+            </label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option2" id="radio-showcase-option2" />
+            <label
+              htmlFor="radio-showcase-option2"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Option 2
+            </label>
+          </div>
+        </RadioGroup>
       ),
     },
   ];

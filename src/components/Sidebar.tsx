@@ -23,6 +23,7 @@ export function Sidebar({ components }: SidebarProps) {
       Checkbox: "/components/checkbox",
       Dialog: "/components/dialog",
       Pagination: "/components/pagination",
+      Radio: "/components/radio",
       Tabs: "/components/tabs",
     };
     return routeMap[title] as
@@ -34,6 +35,7 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/checkbox"
       | "/components/dialog"
       | "/components/pagination"
+      | "/components/radio"
       | "/components/tabs";
   };
 
