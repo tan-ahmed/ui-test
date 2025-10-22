@@ -13,6 +13,7 @@ import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsTabsRouteImport } from './routes/components/tabs'
 import { Route as ComponentsRadioRouteImport } from './routes/components/radio'
+import { Route as ComponentsProgressRouteImport } from './routes/components/progress'
 import { Route as ComponentsPaginationRouteImport } from './routes/components/pagination'
 import { Route as ComponentsDialogRouteImport } from './routes/components/dialog'
 import { Route as ComponentsCheckboxRouteImport } from './routes/components/checkbox'
@@ -40,6 +41,11 @@ const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
 const ComponentsRadioRoute = ComponentsRadioRouteImport.update({
   id: '/components/radio',
   path: '/components/radio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsProgressRoute = ComponentsProgressRouteImport.update({
+  id: '/components/progress',
+  path: '/components/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/progress': typeof ComponentsProgressRoute
   '/components/radio': typeof ComponentsRadioRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/progress': typeof ComponentsProgressRoute
   '/components/radio': typeof ComponentsRadioRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/pagination': typeof ComponentsPaginationRoute
+  '/components/progress': typeof ComponentsProgressRoute
   '/components/radio': typeof ComponentsRadioRoute
   '/components/tabs': typeof ComponentsTabsRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/progress'
     | '/components/radio'
     | '/components/tabs'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/progress'
     | '/components/radio'
     | '/components/tabs'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/components/checkbox'
     | '/components/dialog'
     | '/components/pagination'
+    | '/components/progress'
     | '/components/radio'
     | '/components/tabs'
   fileRoutesById: FileRoutesById
@@ -182,6 +194,7 @@ export interface RootRouteChildren {
   ComponentsCheckboxRoute: typeof ComponentsCheckboxRoute
   ComponentsDialogRoute: typeof ComponentsDialogRoute
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
+  ComponentsProgressRoute: typeof ComponentsProgressRoute
   ComponentsRadioRoute: typeof ComponentsRadioRoute
   ComponentsTabsRoute: typeof ComponentsTabsRoute
 }
@@ -214,6 +227,13 @@ declare module '@tanstack/react-router' {
       path: '/components/radio'
       fullPath: '/components/radio'
       preLoaderRoute: typeof ComponentsRadioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/progress': {
+      id: '/components/progress'
+      path: '/components/progress'
+      fullPath: '/components/progress'
+      preLoaderRoute: typeof ComponentsProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/pagination': {
@@ -286,6 +306,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsCheckboxRoute: ComponentsCheckboxRoute,
   ComponentsDialogRoute: ComponentsDialogRoute,
   ComponentsPaginationRoute: ComponentsPaginationRoute,
+  ComponentsProgressRoute: ComponentsProgressRoute,
   ComponentsRadioRoute: ComponentsRadioRoute,
   ComponentsTabsRoute: ComponentsTabsRoute,
 }

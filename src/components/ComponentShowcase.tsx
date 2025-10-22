@@ -17,6 +17,7 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { RadioGroup, RadioGroupItem } from "./ui/radio";
+import { Progress } from "./ui/progress/progress";
 import { ExternalLink, Copy } from "lucide-react";
 import { useState } from "react";
 import { getComponentStorybookUrl } from "../lib/storybook";
@@ -381,6 +382,36 @@ export function RadioDemo() {
             </label>
           </div>
         </RadioGroup>
+      ),
+    },
+    {
+      title: "Progress",
+      description:
+        "Display completion progress of tasks with visual progress bars.",
+      category: "Form Controls",
+      storybookUrl: getComponentStorybookUrl("PROGRESS"),
+      codeExample: `import { Progress } from "@/components/ui/progress"
+
+export function ProgressDemo() {
+  const [progress, setProgress] = useState(13);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="space-y-4">
+      <Progress value={50} showPercentage />
+      <Progress value={progress} showPercentage />
+    </div>
+  )
+}`,
+      preview: (
+        <div className="space-y-4">
+          <Progress value={50} showPercentage />
+          <Progress value={75} showPercentage />
+        </div>
       ),
     },
   ];

@@ -23,6 +23,7 @@ export function Sidebar({ components }: SidebarProps) {
       Checkbox: "/components/checkbox",
       Dialog: "/components/dialog",
       Pagination: "/components/pagination",
+      Progress: "/components/progress",
       Radio: "/components/radio",
       Tabs: "/components/tabs",
     };
@@ -35,6 +36,7 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/checkbox"
       | "/components/dialog"
       | "/components/pagination"
+      | "/components/progress"
       | "/components/radio"
       | "/components/tabs";
   };
