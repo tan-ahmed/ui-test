@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsTabsRouteImport } from './routes/components/tabs'
 import { Route as ComponentsRadioRouteImport } from './routes/components/radio'
@@ -21,6 +22,11 @@ import { Route as ComponentsButtonRouteImport } from './routes/components/button
 import { Route as ComponentsAlertRouteImport } from './routes/components/alert'
 import { Route as ComponentsAccordionRouteImport } from './routes/components/accordion'
 
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -79,6 +85,7 @@ const ComponentsAccordionRoute = ComponentsAccordionRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/progress': typeof ProgressRoute
   '/components/accordion': typeof ComponentsAccordionRoute
   '/components/alert': typeof ComponentsAlertRoute
   '/components/button': typeof ComponentsButtonRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/progress': typeof ProgressRoute
   '/components/accordion': typeof ComponentsAccordionRoute
   '/components/alert': typeof ComponentsAlertRoute
   '/components/button': typeof ComponentsButtonRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/progress': typeof ProgressRoute
   '/components/accordion': typeof ComponentsAccordionRoute
   '/components/alert': typeof ComponentsAlertRoute
   '/components/button': typeof ComponentsButtonRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/progress'
     | '/components/accordion'
     | '/components/alert'
     | '/components/button'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/progress'
     | '/components/accordion'
     | '/components/alert'
     | '/components/button'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/progress'
     | '/components/accordion'
     | '/components/alert'
     | '/components/button'
@@ -161,6 +173,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProgressRoute: typeof ProgressRoute
   ComponentsAccordionRoute: typeof ComponentsAccordionRoute
   ComponentsAlertRoute: typeof ComponentsAlertRoute
   ComponentsButtonRoute: typeof ComponentsButtonRoute
@@ -175,6 +188,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -257,6 +277,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProgressRoute: ProgressRoute,
   ComponentsAccordionRoute: ComponentsAccordionRoute,
   ComponentsAlertRoute: ComponentsAlertRoute,
   ComponentsButtonRoute: ComponentsButtonRoute,

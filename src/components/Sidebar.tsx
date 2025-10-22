@@ -72,7 +72,14 @@ export function Sidebar({ components }: SidebarProps) {
           ))}
         </nav>
 
-        <div className="mt-8 pt-6 border-t border-gray-200">
+        <div className="mt-8 pt-6 border-t border-gray-200 space-y-2">
+          <Link
+            to="/progress"
+            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100 transition-colors"
+          >
+            <span>Development Progress</span>
+            <ChevronRight className="w-4 h-4" />
+          </Link>
           <a
             href={getBaseStorybookUrl()}
             target="_blank"

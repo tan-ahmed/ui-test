@@ -153,6 +153,29 @@ function Index() {
         </div>
       </div>
 
+      {/* Progress Link */}
+      <div className="mb-16">
+        <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-200">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Track Development Progress
+              </h3>
+              <p className="text-gray-600">
+                Monitor the status of all UI components in development
+              </p>
+            </div>
+            <Link
+              to="/progress"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+            >
+              View Progress
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Available Components */}
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
