@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Target } from "lucide-react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { TbTarget } from "react-icons/tb";
 import { ComponentProgress } from "../components/ComponentProgress";
 
 export const Route = createFileRoute("/progress")({
@@ -15,13 +16,13 @@ function Progress() {
           to="/"
           className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 transition-colors mb-6"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <AiOutlineArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
 
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-            <Target className="w-6 h-6 text-purple-600" />
+            <TbTarget className="w-6 h-6 text-purple-600" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
