@@ -38,13 +38,19 @@ type Story = StoryObj<typeof meta>;
 const BasicTabs = (args: React.ComponentProps<typeof Tabs>) => {
   return (
     <Tabs {...args} defaultValue="tab1" className="w-full">
-      <TabsList>
-        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
-        <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+      <TabsList className="w-full">
+        <TabsTrigger value="tab1" className="flex-1">
+          Tab 1
+        </TabsTrigger>
+        <TabsTrigger value="tab2" className="flex-1">
+          Tab 2
+        </TabsTrigger>
+        <TabsTrigger value="tab3" className="flex-1">
+          Tab 3
+        </TabsTrigger>
       </TabsList>
       <TabsContent value="tab1" className="mt-4">
-        <div className="p-4 border rounded-lg">
+        <div className="p-4 border rounded-lg w-full">
           <h3 className="text-lg font-semibold mb-2">Tab 1 Content</h3>
           <p className="text-gray-600">
             This is the content for the first tab. You can place any content
@@ -53,7 +59,7 @@ const BasicTabs = (args: React.ComponentProps<typeof Tabs>) => {
         </div>
       </TabsContent>
       <TabsContent value="tab2" className="mt-4">
-        <div className="p-4 border rounded-lg">
+        <div className="p-4 border rounded-lg w-full">
           <h3 className="text-lg font-semibold mb-2">Tab 2 Content</h3>
           <p className="text-gray-600">
             This is the content for the second tab. Each tab can have different
@@ -62,7 +68,7 @@ const BasicTabs = (args: React.ComponentProps<typeof Tabs>) => {
         </div>
       </TabsContent>
       <TabsContent value="tab3" className="mt-4">
-        <div className="p-4 border rounded-lg">
+        <div className="p-4 border rounded-lg w-full">
           <h3 className="text-lg font-semibold mb-2">Tab 3 Content</h3>
           <p className="text-gray-600">
             This is the content for the third tab. You can have as many tabs as
@@ -87,7 +93,7 @@ const CardTabs = (args: React.ComponentProps<typeof Tabs>) => {
         <TabsTrigger value="settings">Settings</TabsTrigger>
       </TabsList>
       <TabsContent value="account" className="mt-4">
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Account</CardTitle>
             <CardDescription>
@@ -122,7 +128,7 @@ const CardTabs = (args: React.ComponentProps<typeof Tabs>) => {
         </Card>
       </TabsContent>
       <TabsContent value="password" className="mt-4">
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Password</CardTitle>
             <CardDescription>
@@ -157,7 +163,7 @@ const CardTabs = (args: React.ComponentProps<typeof Tabs>) => {
         </Card>
       </TabsContent>
       <TabsContent value="settings" className="mt-4">
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Settings</CardTitle>
             <CardDescription>
@@ -193,6 +199,15 @@ const CardTabs = (args: React.ComponentProps<typeof Tabs>) => {
 
 export const WithCards: Story = {
   render: (args) => <CardTabs {...args} />,
+  decorators: [
+    (Story) => {
+      return (
+        <div className="min-h-[400px] w-full flex items-center justify-center p-4">
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
 
 const VerticalTabs = (args: React.ComponentProps<typeof Tabs>) => {
@@ -252,6 +267,15 @@ const VerticalTabs = (args: React.ComponentProps<typeof Tabs>) => {
 
 export const Vertical: Story = {
   render: (args) => <VerticalTabs {...args} />,
+  decorators: [
+    (Story) => {
+      return (
+        <div className="min-h-[400px] w-full max-w-4xl flex items-center justify-center p-4">
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
 
 const DisabledTabs = (args: React.ComponentProps<typeof Tabs>) => {
@@ -292,50 +316,105 @@ export const WithDisabled: Story = {
   render: (args) => <DisabledTabs {...args} />,
 };
 
-const ManyTabsComponent = (args: React.ComponentProps<typeof Tabs>) => {
+const SignInTabs = (args: React.ComponentProps<typeof Tabs>) => {
   return (
-    <Tabs {...args} defaultValue="tab1" className="w-full">
-      <TabsList className="grid grid-cols-5">
-        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
-        <TabsTrigger value="tab3">Tab 3</TabsTrigger>
-        <TabsTrigger value="tab4">Tab 4</TabsTrigger>
-        <TabsTrigger value="tab5">Tab 5</TabsTrigger>
-      </TabsList>
-      <TabsContent value="tab1" className="mt-4">
-        <div className="p-4 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2">Tab 1</h3>
-          <p className="text-gray-600">Content for the first tab.</p>
-        </div>
-      </TabsContent>
-      <TabsContent value="tab2" className="mt-4">
-        <div className="p-4 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2">Tab 2</h3>
-          <p className="text-gray-600">Content for the second tab.</p>
-        </div>
-      </TabsContent>
-      <TabsContent value="tab3" className="mt-4">
-        <div className="p-4 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2">Tab 3</h3>
-          <p className="text-gray-600">Content for the third tab.</p>
-        </div>
-      </TabsContent>
-      <TabsContent value="tab4" className="mt-4">
-        <div className="p-4 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2">Tab 4</h3>
-          <p className="text-gray-600">Content for the fourth tab.</p>
-        </div>
-      </TabsContent>
-      <TabsContent value="tab5" className="mt-4">
-        <div className="p-4 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2">Tab 5</h3>
-          <p className="text-gray-600">Content for the fifth tab.</p>
-        </div>
-      </TabsContent>
-    </Tabs>
+    <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-sm border p-6">
+      <Tabs {...args} defaultValue="signin" className="w-full">
+        <TabsList className="w-full justify-start">
+          <TabsTrigger value="signin">Sign in</TabsTrigger>
+          <TabsTrigger value="forgot">Forgot Password</TabsTrigger>
+        </TabsList>
+        <TabsContent value="signin" className="mt-6">
+          <div className="space-y-4">
+            <div>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div className="relative">
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-md hover:bg-primary-hover transition-colors">
+              Sign in
+            </button>
+            <div className="text-sm text-gray-600 space-y-2">
+              <p>
+                No account?{" "}
+                <a href="#" className="text-blue-600 hover:underline">
+                  Register for an account
+                </a>{" "}
+                to be able to apply for jobs.
+              </p>
+              <p>
+                Not received a verification email?{" "}
+                <a href="#" className="text-blue-600 hover:underline">
+                  Resend verification email
+                </a>
+              </p>
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value="forgot" className="mt-6">
+          <div className="space-y-4">
+            <div>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-md hover:bg-primary-hover transition-colors">
+              Reset Password
+            </button>
+            <div className="text-sm text-gray-600">
+              <p>
+                Enter your email address and we'll send you a link to reset your
+                password.
+              </p>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
   );
 };
 
-export const ManyTabs: Story = {
-  render: (args) => <ManyTabsComponent {...args} />,
+export const SignInForm: Story = {
+  render: (args) => <SignInTabs {...args} />,
+  decorators: [
+    (Story) => {
+      return (
+        <div className="min-h-[400px] w-full max-w-md flex items-center justify-center p-4">
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
