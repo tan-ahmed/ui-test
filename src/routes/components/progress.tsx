@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Progress } from "../../components/ui/progress/progress";
 import { useState, useEffect } from "react";
 import { ExternalLink, Copy } from "lucide-react";
+import { getComponentStorybookUrl } from "../../lib/storybook";
 
 export const Route = createFileRoute("/components/progress")({
   component: ProgressComponent,
@@ -163,7 +164,7 @@ export function ProgressDemo() {
 
         <div className="flex gap-2">
           <a
-            href="/storybook/?path=/story/ui-progress--playground"
+            href={getComponentStorybookUrl("PROGRESS")}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100 transition-colors"
@@ -171,195 +172,6 @@ export function ProgressDemo() {
             <ExternalLink className="w-4 h-4" />
             View in Storybook
           </a>
-        </div>
-      </div>
-
-      {/* Usage Examples */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Usage Examples
-        </h2>
-
-        <div className="space-y-8">
-          {/* Basic Usage */}
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Basic Usage
-            </h3>
-            <div className="space-y-4">
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <Progress value={33} />
-              </div>
-              <pre className="p-4 bg-gray-900 text-gray-100 rounded-lg text-sm overflow-x-auto">
-                <code>{`<Progress value={33} />`}</code>
-              </pre>
-            </div>
-          </div>
-
-          {/* With Percentage */}
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              With Percentage Display
-            </h3>
-            <div className="space-y-4">
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <Progress value={66} showPercentage />
-              </div>
-              <pre className="p-4 bg-gray-900 text-gray-100 rounded-lg text-sm overflow-x-auto">
-                <code>{`<Progress value={66} showPercentage />`}</code>
-              </pre>
-            </div>
-          </div>
-
-          {/* File Upload Progress */}
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              File Upload Progress
-            </h3>
-            <div className="space-y-4">
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>Uploading file...</span>
-                    <span>75%</span>
-                  </div>
-                  <Progress value={75} className="w-full" />
-                </div>
-              </div>
-              <pre className="p-4 bg-gray-900 text-gray-100 rounded-lg text-sm overflow-x-auto">
-                <code>{`<div className="space-y-2">
-  <div className="flex justify-between text-sm text-gray-600">
-    <span>Uploading file...</span>
-    <span>75%</span>
-  </div>
-  <Progress value={75} className="w-full" />
-</div>`}</code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Props Documentation */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Props</h2>
-        <div className="bg-white rounded-lg border overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Prop
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Type
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Default
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  value
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  number
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  -
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-500">
-                  The progress value (0-100)
-                </td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  showPercentage
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  boolean
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  false
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-500">
-                  Show percentage label above the progress bar
-                </td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  className
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  string
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  -
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-500">
-                  Additional CSS classes
-                </td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  max
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  number
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  100
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-500">
-                  Maximum value for the progress bar
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Design Guidelines */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Design Guidelines
-        </h2>
-        <div className="bg-white rounded-lg border p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Spacing
-              </h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  • <strong>Height:</strong> 16px (h-4) by default
-                </li>
-                <li>
-                  • <strong>Spacing:</strong> 8px between multiple progress bars
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Colors
-              </h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  • <strong>Background:</strong> Light gray (#e5e7eb)
-                </li>
-                <li>
-                  • <strong>Progress:</strong> Purple (#9333ea)
-                </li>
-                <li>
-                  • <strong>Text:</strong> Dark gray for labels
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </div>
