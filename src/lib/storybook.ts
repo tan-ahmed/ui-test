@@ -42,7 +42,7 @@ export const STORYBOOK_PATHS = {
   CARD: "/story/components-card--default",
   CHECKBOX: "/story/ui-checkbox--docs",
   DIALOG: "/story/ui-dialog--docs",
-  CAROUSEL: "/story/ui-carousel--default-carousel",
+  CAROUSEL: "/story/ui-carousel--docs",
   PAGINATION: "/story/ui-pagination--docs",
   TABS: "/story/ui-tabs--docs",
   RADIO: "/story/ui-radio--docs",
