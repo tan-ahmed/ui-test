@@ -106,7 +106,13 @@ export function CarouselDemo() {
       <div className="mb-8">
         {activeTab === "preview" ? (
           <div className="p-8 bg-gray-50 rounded-lg border flex justify-center">
-            <Carousel className="w-full max-w-xs">
+            <Carousel
+              className="w-full max-w-xs"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+            >
               <CarouselContent>
                 {Array.from({ length: 5 }).map((_, index) => (
                   <CarouselItem key={index}>
@@ -148,7 +154,7 @@ export function CarouselDemo() {
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Slides Per View + Loop
+                Slides Per View
               </h3>
               <p className="text-gray-600 mb-4">
                 Display multiple slides at once, with infinite looping.
@@ -178,7 +184,6 @@ export function CarouselDemo() {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselAutoplay />
                   </div>
                   <CarouselControls />
                 </Carousel>
