@@ -97,59 +97,33 @@ export const Playground: Story = {
               args.orientation === "vertical" ? "max-w-xs" : "max-w-3xl"
             )}
           >
-            {showAutoplay ? (
-              <div className="relative">
-                <CarouselContent
-                  className={cn(args.orientation === "vertical" && "h-[400px]")}
+            <CarouselContent
+              className={cn(args.orientation === "vertical" && "h-[400px]")}
+            >
+              {Array.from({ length: slideCount }).map((_, index) => (
+                <CarouselItem
+                  key={index}
+                  className={cn(
+                    args.orientation === "vertical" ? "basis-1/3" : "",
+                    slidesPerView > 1 && args.orientation === "horizontal"
+                      ? `basis-1/${slidesPerView}`
+                      : ""
+                  )}
                 >
-                  {Array.from({ length: slideCount }).map((_, index) => (
-                    <CarouselItem
-                      key={index}
-                      className={cn(
-                        args.orientation === "vertical" ? "basis-1/3" : "",
-                        slidesPerView > 1 && args.orientation === "horizontal"
-                          ? `basis-1/${slidesPerView}`
-                          : ""
-                      )}
-                    >
-                      <Card className="p-6">
-                        <div className="flex aspect-square items-center justify-center">
-                          <span className="text-4xl font-semibold">
-                            {index + 1}
-                          </span>
-                        </div>
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselAutoplay autoplayInterval={autoplayInterval} />
-              </div>
-            ) : (
-              <CarouselContent
-                className={cn(args.orientation === "vertical" && "h-[400px]")}
-              >
-                {Array.from({ length: slideCount }).map((_, index) => (
-                  <CarouselItem
-                    key={index}
-                    className={cn(
-                      args.orientation === "vertical" ? "basis-1/3" : "",
-                      slidesPerView > 1 && args.orientation === "horizontal"
-                        ? `basis-1/${slidesPerView}`
-                        : ""
-                    )}
-                  >
-                    <Card className="p-6">
-                      <div className="flex aspect-square items-center justify-center">
-                        <span className="text-4xl font-semibold">
-                          {index + 1}
-                        </span>
-                      </div>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            )}
-            <CarouselControls />
+                  <Card className="p-6">
+                    <div className="flex aspect-square items-center justify-center">
+                      <span className="text-4xl font-semibold">
+                        {index + 1}
+                      </span>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselControls
+              showAutoplay={showAutoplay}
+              autoplayInterval={autoplayInterval}
+            />
           </Carousel>
         </div>
 

@@ -263,8 +263,13 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
 
 function CarouselControls({
   className,
+  showAutoplay = false,
+  autoplayInterval = 2000,
   ...props
-}: React.ComponentProps<"div">) {
+}: React.ComponentProps<"div"> & {
+  showAutoplay?: boolean;
+  autoplayInterval?: number;
+}) {
   return (
     <div
       className={cn("flex items-center justify-center gap-4 mt-4", className)}
@@ -272,7 +277,9 @@ function CarouselControls({
     >
       <div className="flex items-center gap-4 justify-between w-full">
         <div className="flex items-center gap-1">
-          <CarouselAutoplay />
+          {showAutoplay && (
+            <CarouselAutoplay autoplayInterval={autoplayInterval} />
+          )}
           <CarouselPrevious />
           <CarouselNext />
         </div>
@@ -291,7 +298,7 @@ function CarouselAutoplay({
 }: React.ComponentProps<"button"> & { autoplayInterval?: number }) {
   const { api } = useCarousel();
   const [isPlaying, setIsPlaying] = React.useState(true);
-  const intervalRef = React.useRef<ReturnType<typeof setInterval>>();
+  const intervalRef = React.useRef<NodeJS.Timeout | undefined>(undefined);
 
   React.useEffect(() => {
     if (!api || !isPlaying) {
