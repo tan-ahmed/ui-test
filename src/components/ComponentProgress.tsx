@@ -125,23 +125,6 @@ export function ComponentProgress() {
           </Card>
         ))}
       </div>
-
-      {/* Next Steps */}
-      {stats.pending > 0 && (
-        <Card className="p-6 bg-blue-50 border-blue-200">
-          <h4 className="font-semibold text-blue-900 mb-2">Next Steps</h4>
-          <p className="text-sm text-blue-700 mb-3">
-            {stats.pending} components are ready to be implemented. Each
-            component should include:
-          </p>
-          <ul className="text-sm text-blue-700 space-y-1">
-            <li>• Component implementation with TypeScript</li>
-            <li>• Storybook stories for documentation</li>
-            <li>• README.md with usage examples</li>
-            <li>• Variants and accessibility features</li>
-          </ul>
-        </Card>
-      )}
     </div>
   );
 }
