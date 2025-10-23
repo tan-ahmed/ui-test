@@ -172,7 +172,6 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 
 function CarouselPrevious({
   className,
-  variant = "default",
   size = "sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
@@ -181,7 +180,6 @@ function CarouselPrevious({
   return (
     <Button
       data-slot="carousel-previous"
-      variant={variant}
       size={size}
       className={cn(
         "size-8 rounded-full p-0 bg-primary text-primary-foreground hover:bg-primary/90",
@@ -199,7 +197,6 @@ function CarouselPrevious({
 
 function CarouselNext({
   className,
-  variant = "default",
   size = "sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
@@ -208,7 +205,6 @@ function CarouselNext({
   return (
     <Button
       data-slot="carousel-next"
-      variant={variant}
       size={size}
       className={cn(
         "size-8 rounded-full p-0 bg-primary text-primary-foreground hover:bg-primary/90",
