@@ -22,9 +22,9 @@ function Index() {
           Weg UI Component Library
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          A modern React UI component library built with Radix UI, Tailwind CSS,
-          and TypeScript. Provides accessible, customizable, and beautiful
-          components for your React applications.
+          A collection of pre-built, professional UI components that help teams
+          create consistent, accessible, and beautiful user interfaces faster
+          than ever before.
         </p>
         <div className="flex gap-4 justify-center">
           <Link
@@ -52,11 +52,11 @@ function Index() {
             <Palette className="w-6 h-6 text-purple-600" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Modern Components
+            Save Time & Money
           </h3>
           <p className="text-gray-600">
-            Built with modern React patterns, TypeScript, and Tailwind CSS for
-            optimal developer experience and performance.
+            Pre-built components eliminate the need to design and code from
+            scratch, reducing development time and costs significantly.
           </p>
         </div>
 
@@ -65,11 +65,12 @@ function Index() {
             <Code className="w-6 h-6 text-purple-600" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Developer Friendly
+            Consistent Quality
           </h3>
           <p className="text-gray-600">
-            Well-documented components with TypeScript support, Storybook
-            stories, and comprehensive examples for easy integration.
+            All components follow the same design standards, ensuring your
+            applications look professional and cohesive across all pages and
+            features.
           </p>
         </div>
 
@@ -78,11 +79,12 @@ function Index() {
             <Zap className="w-6 h-6 text-purple-600" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Accessible
+            Accessible to Everyone
           </h3>
           <p className="text-gray-600">
-            Built on Radix UI primitives for full accessibility support,
-            following WCAG guidelines and best practices.
+            Components are designed to work for all users, including those with
+            disabilities, ensuring your applications are inclusive and
+            compliant.
           </p>
         </div>
       </div>
@@ -99,11 +101,11 @@ function Index() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Browse Components
+                See What's Available
               </h3>
               <p className="text-gray-600">
-                Navigate through our UI component library with live previews and
-                interactive code examples.
+                Explore our complete library of ready-to-use components with
+                live previews and examples.
               </p>
             </div>
           </div>
@@ -114,11 +116,11 @@ function Index() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                View Documentation
+                Learn How to Use
               </h3>
               <p className="text-gray-600">
-                Access comprehensive component documentation with variants,
-                props, and usage examples.
+                Get detailed guides and examples showing how to implement each
+                component in your projects.
               </p>
             </div>
           </div>
@@ -129,11 +131,11 @@ function Index() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Explore in Storybook
+                Try Before You Use
               </h3>
               <p className="text-gray-600">
-                Interactive component playground with live controls and
-                real-time customization.
+                Test and customize components in real-time to see exactly how
+                they'll look and work in your application.
               </p>
             </div>
           </div>
@@ -144,11 +146,11 @@ function Index() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Install & Use
+                Get Started Quickly
               </h3>
               <p className="text-gray-600">
-                Install via npm and import components directly into your React
-                applications with full TypeScript support.
+                Easy installation and integration into your existing projects
+                with minimal setup required.
               </p>
             </div>
           </div>
@@ -161,11 +163,10 @@ function Index() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Track Component Progress
+                Track Development Progress
               </h3>
               <p className="text-gray-600">
-                Monitor the development status of all UI components in the
-                library
+                See which components are ready to use and what's coming next
               </p>
             </div>
             <Link
