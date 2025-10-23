@@ -19,6 +19,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "./ui/radio";
 import { Progress } from "./ui/progress/progress";
 import { Spinner } from "./ui/spinner/spinner";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { ExternalLink, Copy } from "lucide-react";
 import { useState } from "react";
 import { getComponentStorybookUrl } from "../lib/storybook";
@@ -440,6 +441,41 @@ export function SpinnerDemo() {
           <Spinner size="sm" color="primary" />
           <Spinner size="md" color="success" />
           <Spinner size="lg" color="error" />
+        </div>
+      ),
+    },
+    {
+      title: "Tooltip",
+      description: "Contextual information displayed on hover or focus.",
+      category: "Overlay",
+      storybookUrl: getComponentStorybookUrl("TOOLTIP"),
+      codeExample: `import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button"
+
+export function TooltipDemo() {
+  return (
+    <div className="flex gap-4">
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Hover me</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>This is a tooltip</p>
+        </TooltipContent>
+      </Tooltip>
+    </div>
+  )
+}`,
+      preview: (
+        <div className="flex gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline">Hover me</Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>This is a tooltip</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
       ),
     },

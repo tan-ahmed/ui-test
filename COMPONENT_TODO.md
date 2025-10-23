@@ -19,10 +19,8 @@ This document tracks the progress of UI components in the project.
 - **Select** - ❌ NOT STARTED
 - **Input** - ❌ NOT STARTED
 - **Drawer** - ❌ NOT STARTED
+- **Dropdown** - ❌ NOT STARTED
 - **Footer** - ❌ NOT STARTED
-- **Dropdown - Checkbox** - ❌ NOT STARTED
-- **Dropdown - Radio** - ❌ NOT STARTED
-- **Dropdown - Select Button** - ❌ NOT STARTED
 - **Header** - ❌ NOT STARTED
 - **Progress Bar** - ❌ NOT STARTED
 - **Spinner** - ❌ NOT STARTED
@@ -33,9 +31,9 @@ This document tracks the progress of UI components in the project.
 ## 📊 Progress Summary
 
 - **Completed**: 8 components
-- **Pending**: 14 components
-- **Total**: 22 components
-- **Completion Rate**: 36.4%
+- **Pending**: 12 components
+- **Total**: 20 components
+- **Completion Rate**: 40.0%
 
 ## 📝 Notes
 

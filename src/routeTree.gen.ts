@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComponentsTooltipRouteImport } from './routes/components/tooltip'
 import { Route as ComponentsTabsRouteImport } from './routes/components/tabs'
 import { Route as ComponentsSpinnerRouteImport } from './routes/components/spinner'
 import { Route as ComponentsRadioRouteImport } from './routes/components/radio'
@@ -32,6 +33,11 @@ const ProgressRoute = ProgressRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTooltipRoute = ComponentsTooltipRouteImport.update({
+  id: '/components/tooltip',
+  path: '/components/tooltip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/components/radio': typeof ComponentsRadioRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
   '/components/tabs': typeof ComponentsTabsRoute
+  '/components/tooltip': typeof ComponentsTooltipRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -126,6 +133,7 @@ export interface FileRoutesByTo {
   '/components/radio': typeof ComponentsRadioRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
   '/components/tabs': typeof ComponentsTabsRoute
+  '/components/tooltip': typeof ComponentsTooltipRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -143,6 +151,7 @@ export interface FileRoutesById {
   '/components/radio': typeof ComponentsRadioRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
   '/components/tabs': typeof ComponentsTabsRoute
+  '/components/tooltip': typeof ComponentsTooltipRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/components/radio'
     | '/components/spinner'
     | '/components/tabs'
+    | '/components/tooltip'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/components/radio'
     | '/components/spinner'
     | '/components/tabs'
+    | '/components/tooltip'
   id:
     | '__root__'
     | '/'
@@ -193,6 +204,7 @@ export interface FileRouteTypes {
     | '/components/radio'
     | '/components/spinner'
     | '/components/tabs'
+    | '/components/tooltip'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -210,6 +222,7 @@ export interface RootRouteChildren {
   ComponentsRadioRoute: typeof ComponentsRadioRoute
   ComponentsSpinnerRoute: typeof ComponentsSpinnerRoute
   ComponentsTabsRoute: typeof ComponentsTabsRoute
+  ComponentsTooltipRoute: typeof ComponentsTooltipRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -226,6 +239,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/tooltip': {
+      id: '/components/tooltip'
+      path: '/components/tooltip'
+      fullPath: '/components/tooltip'
+      preLoaderRoute: typeof ComponentsTooltipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/tabs': {
@@ -330,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsRadioRoute: ComponentsRadioRoute,
   ComponentsSpinnerRoute: ComponentsSpinnerRoute,
   ComponentsTabsRoute: ComponentsTabsRoute,
+  ComponentsTooltipRoute: ComponentsTooltipRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

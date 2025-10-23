@@ -20,6 +20,7 @@ export const Route = createRootRoute({
               { title: "Card", category: "Layout" },
               { title: "Carousel", category: "Layout" },
               { title: "Dialog", category: "Overlay" },
+              { title: "Tooltip", category: "Overlay" },
               { title: "Pagination", category: "Navigation" },
               { title: "Tabs", category: "Navigation" },
             ]}

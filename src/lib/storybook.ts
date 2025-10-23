@@ -48,6 +48,7 @@ export const STORYBOOK_PATHS = {
   SPINNER: "/story/ui-spinner--docs",
   TABS: "/story/ui-tabs--docs",
   RADIO: "/story/ui-radio--docs",
+  TOOLTIP: "/story/ui-tooltip--docs",
 } as const;
 
 /**

@@ -27,6 +27,7 @@ export function Sidebar({ components }: SidebarProps) {
       Radio: "/components/radio",
       Spinner: "/components/spinner",
       Tabs: "/components/tabs",
+      Tooltip: "/components/tooltip",
     };
     return routeMap[title] as
       | "/components/button"
@@ -40,7 +41,8 @@ export function Sidebar({ components }: SidebarProps) {
       | "/components/progress"
       | "/components/radio"
       | "/components/spinner"
-      | "/components/tabs";
+      | "/components/tabs"
+      | "/components/tooltip";
   };
 
   return (

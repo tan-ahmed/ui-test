@@ -29,22 +29,8 @@ export function useComponentTodos() {
       { id: "select", content: "Select component", status: "pending" },
       { id: "input", content: "Input component", status: "pending" },
       { id: "drawer", content: "Drawer component", status: "pending" },
+      { id: "dropdown", content: "Dropdown component", status: "pending" },
       { id: "footer", content: "Footer component", status: "pending" },
-      {
-        id: "dropdown-checkbox",
-        content: "Dropdown - Checkbox component",
-        status: "pending",
-      },
-      {
-        id: "dropdown-radio",
-        content: "Dropdown - Radio component",
-        status: "pending",
-      },
-      {
-        id: "dropdown-select",
-        content: "Dropdown - Select Button component",
-        status: "pending",
-      },
       { id: "header", content: "Header component", status: "pending" },
       {
         id: "pagination",
@@ -67,7 +53,7 @@ export function useComponentTodos() {
         content: "Tables & datagrid component",
         status: "pending",
       },
-      { id: "tooltips", content: "Tooltips component", status: "pending" },
+      { id: "tooltips", content: "Tooltips component", status: "completed" },
     ];
 
     // Simulate async loading
