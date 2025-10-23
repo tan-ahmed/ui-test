@@ -4,7 +4,6 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselControls,
-  CarouselAutoplay,
 } from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
 import { Copy } from "lucide-react";
