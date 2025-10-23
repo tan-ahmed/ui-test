@@ -19,12 +19,12 @@ function Index() {
     <div className="px-6 py-8 max-w-5xl mx-auto">
       <div className="text-center mb-16">
         <h1 className="text-5xl font-bold text-gray-900 mb-6">
-          University of Warwick Design System
+          Weg UI Component Library
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          A comprehensive collection of reusable components, design tokens, and
-          guidelines to build consistent user interfaces across University of
-          Warwick applications.
+          A modern React UI component library built with Radix UI, Tailwind CSS,
+          and TypeScript. Provides accessible, customizable, and beautiful
+          components for your React applications.
         </p>
         <div className="flex gap-4 justify-center">
           <Link
@@ -52,11 +52,11 @@ function Index() {
             <Palette className="w-6 h-6 text-purple-600" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Consistent Design
+            Modern Components
           </h3>
           <p className="text-gray-600">
-            Built with a unified design language to ensure consistency across
-            all your applications.
+            Built with modern React patterns, TypeScript, and Tailwind CSS for
+            optimal developer experience and performance.
           </p>
         </div>
 
@@ -68,8 +68,8 @@ function Index() {
             Developer Friendly
           </h3>
           <p className="text-gray-600">
-            Well-documented components with TypeScript support and comprehensive
-            examples.
+            Well-documented components with TypeScript support, Storybook
+            stories, and comprehensive examples for easy integration.
           </p>
         </div>
 
@@ -81,8 +81,8 @@ function Index() {
             Accessible
           </h3>
           <p className="text-gray-600">
-            All components are built with accessibility in mind, following WCAG
-            guidelines.
+            Built on Radix UI primitives for full accessibility support,
+            following WCAG guidelines and best practices.
           </p>
         </div>
       </div>
@@ -102,8 +102,8 @@ function Index() {
                 Browse Components
               </h3>
               <p className="text-gray-600">
-                Navigate through our component library with live previews and
-                code examples.
+                Navigate through our UI component library with live previews and
+                interactive code examples.
               </p>
             </div>
           </div>
@@ -117,8 +117,8 @@ function Index() {
                 View Documentation
               </h3>
               <p className="text-gray-600">
-                Access comprehensive docs with variants, sizes, and
-                customization options.
+                Access comprehensive component documentation with variants,
+                props, and usage examples.
               </p>
             </div>
           </div>
@@ -132,7 +132,8 @@ function Index() {
                 Explore in Storybook
               </h3>
               <p className="text-gray-600">
-                Interactive examples and component controls for experimentation.
+                Interactive component playground with live controls and
+                real-time customization.
               </p>
             </div>
           </div>
@@ -143,10 +144,11 @@ function Index() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Integrate into Your Project
+                Install & Use
               </h3>
               <p className="text-gray-600">
-                Import components directly into your React applications.
+                Install via npm and import components directly into your React
+                applications with full TypeScript support.
               </p>
             </div>
           </div>
@@ -159,10 +161,11 @@ function Index() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Track Development Progress
+                Track Component Progress
               </h3>
               <p className="text-gray-600">
-                Monitor the status of all UI components in development
+                Monitor the development status of all UI components in the
+                library
               </p>
             </div>
             <Link
@@ -179,7 +182,7 @@ function Index() {
       {/* Available Components */}
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Available Components
+          Component Library
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link
