@@ -1,16 +1,56 @@
 {
-  "name": "ui-test",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@tan-ahmed/weg-ui",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "description": "A modern React UI component library built with Radix UI and Tailwind CSS",
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "tailwind",
+    "radix-ui",
+    "typescript"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tan-ahmed/weg-ui.git"
+  },
+  "homepage": "https://github.com/tan-ahmed/weg-ui#readme",
+  "bugs": {
+    "url": "https://github.com/tan-ahmed/weg-ui/issues"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json && vite build --mode library",
     "build:all": "node scripts/build-all.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
@@ -28,8 +68,6 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.546.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.14"

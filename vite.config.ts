@@ -14,13 +14,46 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
-export default defineConfig({
-  plugins: [react(), TanStackRouterVite(), tailwindcss()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  const isLibrary = mode === 'library';
+  
+  return {
+    plugins: [
+      react(), 
+      ...(isLibrary ? [] : [TanStackRouterVite()]), 
+      tailwindcss()
+    ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
     },
-  },
+    ...(isLibrary && {
+      build: {
+        lib: {
+          entry: path.resolve(__dirname, 'src/index.ts'),
+          name: 'UITest',
+          fileName: (format) => `index.${format}.js`,
+          formats: ['es']
+        },
+        rollupOptions: {
+          external: [
+            'react',
+            'react-dom',
+            'react/jsx-runtime'
+          ],
+          output: {
+            globals: {
+              react: 'React',
+              'react-dom': 'ReactDOM'
+            }
+          }
+        },
+        cssCodeSplit: false,
+        sourcemap: true,
+        minify: false
+      }
+    }),
   test: {
     projects: [
       {
