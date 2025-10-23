@@ -65,6 +65,15 @@ export function CarouselDemo() {
           A carousel component for cycling through elements with support for
           keyboard navigation, touch gestures, and various configurations.
         </p>
+        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-blue-800 text-sm">
+            💡{" "}
+            <strong>Want to see more examples and learn how it works?</strong>{" "}
+            Visit our Storybook documentation below to explore interactive
+            examples, different configurations, and see the carousel in action
+            with various use cases.
+          </p>
+        </div>
       </div>
 
       {/* Tabs */}
@@ -133,45 +142,35 @@ export function CarouselDemo() {
       {/* Documentation sections */}
       <div className="space-y-8">
         <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Usage</h2>
-          <div className="bg-gray-50 p-4 rounded-lg border">
-            <pre className="text-sm">
-              <code>{`import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselControls,
-} from "@/components/ui/carousel"`}</code>
-            </pre>
-          </div>
-        </section>
-
-        <section>
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">
             Variants
           </h2>
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Loop Carousel
+                Slides Per View + Loop
               </h3>
               <p className="text-gray-600 mb-4">
-                Enable infinite looping through slides.
+                Display multiple slides at once, with infinite looping.
               </p>
               <div className="p-8 bg-gray-50 rounded-lg border">
                 <Carousel
                   opts={{
+                    align: "start",
                     loop: true,
                   }}
-                  className="w-full max-w-xs mx-auto"
+                  className="w-full max-w-2xl mx-auto"
                 >
                   <div className="relative">
                     <CarouselContent>
-                      {Array.from({ length: 3 }).map((_, index) => (
-                        <CarouselItem key={index}>
+                      {Array.from({ length: 6 }).map((_, index) => (
+                        <CarouselItem
+                          key={index}
+                          className="md:basis-1/2 lg:basis-1/3"
+                        >
                           <Card className="p-6">
                             <div className="flex aspect-square items-center justify-center">
-                              <span className="text-3xl font-semibold">
+                              <span className="text-2xl font-semibold">
                                 {index + 1}
                               </span>
                             </div>
@@ -185,94 +184,7 @@ export function CarouselDemo() {
                 </Carousel>
               </div>
             </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Slides Per View
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Display multiple slides at once.
-              </p>
-              <div className="p-8 bg-gray-50 rounded-lg border">
-                <Carousel
-                  opts={{
-                    align: "start",
-                  }}
-                  className="w-full max-w-2xl mx-auto"
-                >
-                  <CarouselContent>
-                    {Array.from({ length: 6 }).map((_, index) => (
-                      <CarouselItem
-                        key={index}
-                        className="md:basis-1/2 lg:basis-1/3"
-                      >
-                        <Card className="p-6">
-                          <div className="flex aspect-square items-center justify-center">
-                            <span className="text-2xl font-semibold">
-                              {index + 1}
-                            </span>
-                          </div>
-                        </Card>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselControls />
-                </Carousel>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Vertical Carousel
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Carousel with vertical orientation.
-              </p>
-              <div className="p-8 bg-gray-50 rounded-lg border flex justify-center">
-                <Carousel
-                  orientation="vertical"
-                  opts={{
-                    align: "start",
-                  }}
-                  className="w-full max-w-xs"
-                >
-                  <CarouselContent className="h-[300px]">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <CarouselItem key={index} className="pt-1 basis-1/3">
-                        <Card className="p-6">
-                          <div className="flex items-center justify-center">
-                            <span className="text-2xl font-semibold">
-                              {index + 1}
-                            </span>
-                          </div>
-                        </Card>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselControls />
-                </Carousel>
-              </div>
-            </div>
           </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Features
-          </h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Dot indicators showing current slide</li>
-            <li>Autoplay with pause/play button</li>
-            <li>Left/Right navigation arrows</li>
-            <li>Keyboard navigation (Arrow keys)</li>
-            <li>Touch/swipe support for mobile devices</li>
-            <li>Infinite loop mode</li>
-            <li>Multiple slides per view</li>
-            <li>Variable width slides</li>
-            <li>Vertical orientation</li>
-            <li>Accessible with ARIA attributes</li>
-            <li>Built on Embla Carousel</li>
-          </ul>
         </section>
 
         <section>
